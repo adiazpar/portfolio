@@ -196,7 +196,7 @@ nav ul li a:hover::after {
 
 #about {
     padding: 80px 5%;
-    color: lightgray;
+    color: var(--tertiary-color);
     font-weight: lighter;
 }
 .row {
@@ -216,7 +216,7 @@ nav ul li a:hover::after {
 }
 .sub-title {
     font-size: 24px;
-    color: white;
+    color: var(--primary-color);
     font-weight: bold;
     margin-bottom: 16px;
 }
@@ -237,14 +237,14 @@ nav ul li a:hover::after {
     content: '';
     width: 0;
     height: 2px;
-    background: #ff004f;
+    background: var(--accent-color);
     position: absolute;
     left: 0;
     bottom: -8px;
     transition: 0.25s;
 }
 .tab-links:hover {
-    color: white;
+    color: var(--primary-color);
 }
 .tab-links.active-link::after {
     width: 50%;
@@ -255,7 +255,7 @@ nav ul li a:hover::after {
     font-size: medium;
 }
 .tab-contents ul li span {
-    color: #ff004f;
+    color: var(--accent-color);
     font-size: 16px;
 }
 .tab-contents {
