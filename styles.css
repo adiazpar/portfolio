@@ -123,13 +123,13 @@ nav ul li a:hover::after {
     position: relative;
     overflow: hidden;
     border: none;
-    transition: none;
+    transition: color 0.25s;
 }
 .social-btn::before, .social-btn::after {
     /* Create animated border pseudo-elements */
     content: '';
     position: absolute;
-    transition: all 0.2s linear;
+    transition: all 0.25s linear;
 }
 .social-btn::before {
     /* Bottom left borders (starts the animation) */
@@ -162,6 +162,9 @@ nav ul li a:hover::after {
     border-top-color: var(--accent-color);
     border-right-color: var(--accent-color);
     transition-delay: 0s;
+}
+.social-btn:hover {
+    color: white;
 }
 
 .social-btn i {
