@@ -10,9 +10,18 @@
 <body>
     <div id="header">
         <div class="nav-container">
+            <div class="nav-backdrop"></div>
             <nav>
                 <img src="images/logo.png" class="logo">
-                <ul>
+
+                <!-- Hamburger button (hidden on desktop) -->
+                 <div class="hamburger" onclick="toggleMenu()">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="x-icon" style="display: none;"></i>
+                 </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Projects</a></li>
@@ -109,6 +118,32 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
+
+        // Hamburger Menu:
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navBackdrop = document.querySelector('.nav-backdrop');
+            const menuIcon = document.querySelector('.menu-icon');
+            const xIcon = document.querySelector('.x-icon');
+
+            // Toggle menu visibility:
+            navMenu.classList.toggle('active');
+            navBackdrop.classList.toggle('active');
+
+            // Toggle body scroll:
+            document.body.classList.toggle('no-scroll');
+
+            // Switch icons:
+            if (navMenu.classList.contains('active')) {
+                menuIcon.style.display = 'none';
+                xIcon.style.display = 'block';
+            } else {
+                menuIcon.style.display = 'block';
+                xIcon.style.display = 'none';
+            }
+        }
+
     </script>
 </body>
 </html>

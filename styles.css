@@ -12,12 +12,17 @@
     padding: 0;
     font-family: var(--primary-font);
     box-sizing: border-box;
+    overscroll-behavior: none;
 }
 
 body {
-    background: rgb(10, 10, 10);
+    background: white;
     color: white;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 
 #header {
@@ -26,34 +31,69 @@ body {
     background-image: url(images/background.jpg);
     background-size: cover;
     background-position: right;
-    background-attachment: fixed;
 }
-
 .nav-container {
     padding: 0px 5%;
-    background-color: black;
+    background-color: rgb(10, 10, 10);
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
 
     top: 0;
     position: sticky;
     z-index: 100000;
 }
+.nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 72px;
+    height: 80px;
 }
 
 .logo {
-    height: 48px;
+    height: 56px;
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary-color);
+    transition: color 0.25s;
+}
+.hamburger:hover {
+    color: var(--primary-color);
+}
+.hamburger i {
+    width: 24px;
+    height: 24px;
+}
+.no-scroll {
+    overflow: hidden;
 }
 nav ul li {
     display: inline-block;
     list-style: none;
-    margin: 12px 20px;
+    margin: 12px 24px;
     display: inline;
 }
 nav ul li a {
@@ -63,7 +103,7 @@ nav ul li a {
     font-weight: bold;
     position: relative;
     text-transform: uppercase;
-    transition: 0.25s;
+    transition: color 0.25s;
 }
 nav ul li a:hover {
     color: var(--primary-color);
@@ -81,17 +121,52 @@ nav ul li a::after {
 nav ul li a:hover::after {
     width: 100%;
 }
+@media screen and (max-width: 700px) {
+    .hamburger {
+        display: flex;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -40%;
+        width: 40%;
+        height: 100vh;
+        background-color: rgba(20, 20, 20, 1);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: 0.25s;
+        padding-top: 72px;
+        padding-right: 5%;
+        z-index: -1;
+    }
+    .nav-menu.active {
+        right: 0;
+    }
+    .nav-menu li {
+        margin-bottom: 48px;
+        margin-right: 0;
+        display: block;
+        text-align: right;
+    }
+    .nav-menu li a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+    }
+}
 
 
 .header-container {
-    padding: 16px 5%;
+    padding: 16px 10%;
 }
 .header-text {
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 .header-text p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
+    font-weight: lighter;
 }
 .header-text h1 {
     font-size: clamp(2rem, 6vw, 4rem);
@@ -177,20 +252,6 @@ nav ul li a:hover::after {
     height: 32px;
 }
 
-@media screen and (max-width: 700px) {
-    .header-text {
-        margin-top: 30%;
-    }
-    .social-btn {
-        width: 32px;
-        height: 32px;
-    }
-    .social-btn i {
-        width: 32px;
-        height: 32px;
-    }
-}
-
 
 /* ------------------ about ------------------ */
 
@@ -200,7 +261,6 @@ nav ul li a:hover::after {
     background-image: url(images/background1.jpg);
     background-size: cover;
     background-position: right;
-    background-attachment: fixed;
 }
 .sticky-border {
     border-top: 1px solid var(--secondary-color);
@@ -208,7 +268,7 @@ nav ul li a:hover::after {
 .about-container {
     color: var(--tertiary-color);
     font-weight: lighter;
-    padding: 80px 5%;
+    padding: 80px 10%;
 }
 .row {
     display: flex;
