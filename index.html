@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="header">
+        <div class="parallax-bg" data-speed="0.5"></div>
         <div class="nav-container">
             <div class="nav-backdrop"></div>
             <nav>
@@ -54,7 +55,7 @@
     <!------------------ about ------------------>
 
     <div id="about">
-        <div class="sticky-border"></div>
+        <div class="parallax-bg" data-speed="0.2"></div>
         <div class="about-container">
             <div class="row">
                 <div class="about-col-1">
@@ -143,6 +144,58 @@
                 xIcon.style.display = 'none';
             }
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navBackdrop = document.querySelector('.nav-backdrop');
+
+            // If menu is open and click is outside menu area
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                // Close the menu
+                navMenu.classList.remove('active');
+                navBackdrop.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+
+                // Switch icons back
+                document.querySelector('.menu-icon').style.display = 'block';
+                document.querySelector('.x-icon').style.display = 'none';
+            }
+        });
+
+        // Parallax Effect:
+        function initParallax() {
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+
+            function updateParallax() {
+                const scrollY = window.pageYOffset;
+
+                parallaxElements.forEach(element => {
+                    const speed = element.dataset.speed || 0.5;
+                    const yPos = scrollY * speed;
+                    element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                });
+            }
+
+            let ticking = false;
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        updateParallax();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll);
+            updateParallax();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initParallax();
+        });
 
     </script>
 </body>
