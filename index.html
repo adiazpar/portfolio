@@ -5,31 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio Website</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://kit.fontawesome.com/487246ab59.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="header">
-        <div class="parallax-bg" data-speed="0.5"></div>
-        <div class="nav-container">
-            <div class="nav-backdrop"></div>
-            <nav>
-                <img src="images/logo.png" class="logo">
+    <div class="nav-container">
+        <div class="nav-backdrop"></div>
+        <nav>
+            <img src="images/logo.png" class="logo" onclick="navigateTo('#home')">
 
-                <!-- Hamburger button (hidden on desktop) -->
-                 <div class="hamburger" onclick="toggleMenu()">
-                    <i data-lucide="menu" class="menu-icon"></i>
-                    <i data-lucide="x" class="x-icon" style="display: none;"></i>
-                 </div>
-                
-                <!-- Navigation Menu -->
-                <ul class="nav-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <!-- Hamburger button (hidden on desktop) -->
+             <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars fa-xl menu-icon"></i>
+                <i class="fa-solid fa-xmark fa-xl x-icon" style="display: none;"></i>
+             </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li onclick="navigateTo('#home')">Home</li>
+                <li onclick="navigateTo('#about')">About</li>
+                <li onclick="navigateTo('#')">Projects</li>
+                <li onclick="navigateTo('#')">Contact</li>
+            </ul>
+        </nav>
+    </div>
+    <div id="header">
         <div class="header-container">
             <div class="header-text">
                 <p>Hello, my name is</p>
@@ -40,13 +39,13 @@
             </div>
             <div class="socials-buttons">
                 <a href="https://github.com/adiazpar" target="_blank" class="social-btn">
-                    <i data-lucide="github"></i>
+                    <i class="fa-brands fa-github fa-xl"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/adiazpar/" target="_blank" class="social-btn">
-                    <i data-lucide="linkedin"></i>
+                    <i class="fa-brands fa-linkedin fa-xl"></i>
                 </a>
                 <a href="#" target="_blank" class="social-btn">
-                    <i data-lucide="youtube"></i>
+                    <i class="fa-brands fa-youtube fa-xl"></i>
                 </a>
             </div>
         </div>
@@ -55,7 +54,6 @@
     <!------------------ about ------------------>
 
     <div id="about">
-        <div class="parallax-bg" data-speed="0.2"></div>
         <div class="about-container">
             <div class="row">
                 <div class="about-col-1">
@@ -101,9 +99,34 @@
     </div>
 
     <script>
+        // Navbar scroll behavior:
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.nav-container');
+        const header = document.querySelector('#header');
+        
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const headerHeight = header.offsetHeight;
 
-        // Initializing Lucide icons:
-        lucide.createIcons();
+            // When at very top, keep navbar fixed:
+            if (scrollTop === 0) {
+                navbar.classList.remove('hidden');
+            }
+            // After scrolling past header, make it sticky:
+            else if (scrollTop > headerHeight * 0.5) {
+                navbar.classList.remove('hidden');
+
+                // Hide navbar when scrolling down fast:
+                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                    navbar.classList.add('hidden');
+                }
+                else {
+                    navbar.classList.remove('hidden');
+                }
+            }
+            lastScrollTop = scrollTop;
+        });
+
 
         // About Section Javascript to control active tab:
         var tablinks = document.getElementsByClassName("tab-links");
@@ -132,16 +155,33 @@
             navMenu.classList.toggle('active');
             navBackdrop.classList.toggle('active');
 
-            // Toggle body scroll:
-            document.body.classList.toggle('no-scroll');
-
             // Switch icons:
             if (navMenu.classList.contains('active')) {
                 menuIcon.style.display = 'none';
                 xIcon.style.display = 'block';
             } else {
-                menuIcon.style.display = 'block';
-                xIcon.style.display = 'none';
+                closeMenu();
+            }
+        }
+
+        // Site Navbar Navigation:
+        function navigateTo(target) {
+            const navMenu = document.querySelector('.nav-menu');
+
+            // Navigate to target section:
+            if (target === '#home' || target === '#') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else {
+                const element = document.querySelector(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            // Check if the nav menu is open:
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
             }
         }
 
@@ -153,49 +193,24 @@
 
             // If menu is open and click is outside menu area
             if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                // Close the menu
-                navMenu.classList.remove('active');
-                navBackdrop.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-
-                // Switch icons back
-                document.querySelector('.menu-icon').style.display = 'block';
-                document.querySelector('.x-icon').style.display = 'none';
+                closeMenu();
             }
         });
 
-        // Parallax Effect:
-        function initParallax() {
-            const parallaxElements = document.querySelectorAll('.parallax-bg');
+        // Close the navigation side menu:
+        function closeMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const navBackdrop = document.querySelector('.nav-backdrop');
+            const menuIcon = document.querySelector('.menu-icon');
+            const xIcon = document.querySelector('.x-icon');
 
-            function updateParallax() {
-                const scrollY = window.pageYOffset;
+            navMenu.classList.remove('active');
+            navBackdrop.classList.remove('active');
 
-                parallaxElements.forEach(element => {
-                    const speed = element.dataset.speed || 0.5;
-                    const yPos = scrollY * speed;
-                    element.style.transform = `translate3d(0, ${yPos}px, 0)`;
-                });
-            }
-
-            let ticking = false;
-            function onScroll() {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        updateParallax();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', onScroll);
-            updateParallax();
+            // Switch icons back
+            document.querySelector('.menu-icon').style.display = 'block';
+            document.querySelector('.x-icon').style.display = 'none';
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initParallax();
-        });
 
     </script>
 </body>
