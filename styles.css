@@ -159,13 +159,10 @@ nav ul li:hover {
 }
 .header-text {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
-}
-.header-text p {
-    color: var(--text-accent-color);
+    text-align: center;
 }
 .header-text h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    margin-top: 16px;
+    font-size: clamp(3rem, 6vw, 4rem);
 }
 .header-text h1 a {
     color: var(--text-primary-color);
@@ -174,9 +171,9 @@ nav ul li:hover {
     color: var(--text-accent-color);
 }
 .header-text .sub-text {
-    margin-top: 48px;
-    color: var(--text-tertiary-color);
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    padding-top: 32px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: lighter;
 }
 
 
@@ -184,6 +181,7 @@ nav ul li:hover {
     margin-top: 32px;
     display: flex;
     gap: 16px;
+    justify-content: center;
 }
 .social-btn {
     display: flex;
@@ -191,7 +189,7 @@ nav ul li:hover {
     justify-content: center;
     width: 48px;
     height: 48px;
-    color: var(--text-tertiary-color);
+    color: var(--text-primary-color);
     transition: color 0.25s;
     text-decoration: none;
 }
