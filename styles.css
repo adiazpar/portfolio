@@ -1,16 +1,16 @@
 :root {
-    --primary-font: 'system-ui', sans-serif;
+    --primary-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --text-primary-color: white;
     --text-secondary-color: gray;
     --text-tertiary-color: lightgray;
-    --text-accent-color: #40E0D0;
+    --text-accent-color: cyan;
 
     --dark-primary-color: #222831;
     --dark-secondary1-color: #393E46;
     --dark-secondary2-color: rgb(62, 67, 75);
     --dark-tertiary-color: #EEEEEE;
-    --dark-accent-color: #00ADB5;
+    --dark-accent-color: cyan;
 }
 
 *{
@@ -71,7 +71,7 @@ nav {
 }
 
 .logo {
-    height: 40px;
+    height: 56px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -155,7 +155,11 @@ nav ul li:hover {
 #header {
     position: static;
     margin-top: 80px;
-    padding: 12% 10%;
+    padding: 0 10%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .header-text {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
@@ -163,6 +167,7 @@ nav ul li:hover {
 }
 .header-text h1 {
     font-size: clamp(3rem, 6vw, 4rem);
+    letter-spacing: 0.05em;
 }
 .header-text h1 a {
     color: var(--text-primary-color);
@@ -178,9 +183,9 @@ nav ul li:hover {
 
 
 .socials-buttons {
-    margin-top: 32px;
+    margin-top: 40px;
     display: flex;
-    gap: 16px;
+    gap: 40px;
     justify-content: center;
 }
 .social-btn {
