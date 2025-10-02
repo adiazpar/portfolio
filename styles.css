@@ -19,10 +19,6 @@
     box-sizing: border-box;
 }
 
-.resize-animation-stopper * {
-    transition: none !important;
-}
-
 body {
     background: var(--dark-secondary1-color);
     color: white;
@@ -32,7 +28,7 @@ body {
 .fade-in {
     opacity: 0;
     filter: blur(10px);
-    transition: opacity 1s ease, filter 0.8s ease;
+    transition: opacity 0.8s ease, filter 0.8s ease;
 }
 .fade-in.visible {
     opacity: 1;
@@ -175,7 +171,7 @@ nav ul li {
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    height: calc(100svh - 256px);
+    height: 60svh;
 }
 .header-container {
     margin-top: 256px;
