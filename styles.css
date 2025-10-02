@@ -80,8 +80,10 @@ nav {
     scale: 1;
 
 }
-.logo:hover {
-    scale: 1.05;
+@media (hover: hover) and (pointer: fine) {
+    .logo:hover {
+        scale: 1.05;
+    }
 }
 .hamburger {
     display: none;
@@ -95,8 +97,10 @@ nav {
     transition: color 0.25s;
     color: var(--dark-tertiary-color);
 }
-.hamburger:hover {
-    color: var(--dark-accent-color);
+@media (hover: hover) and (pointer: fine) {
+    .hamburger:hover {
+        color: var(--dark-accent-color);
+    }
 }
 nav ul li {
     display: inline-block;
@@ -112,9 +116,11 @@ nav ul li {
     text-transform: uppercase;
     transition: color 0.25s;
 }
-nav ul li:hover {
-    color: var(--dark-accent-color);
-    cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+    nav ul li:hover {
+        color: var(--dark-accent-color);
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -156,10 +162,12 @@ nav ul li:hover {
     position: static;
     margin-top: 80px;
     padding: 0 10%;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 130px);
+
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .header-text {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
@@ -169,6 +177,11 @@ nav ul li:hover {
     font-size: clamp(3rem, 6vw, 4rem);
     letter-spacing: 0.05em;
 }
+.header-text h2 {
+    margin-top: 8px;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: var(--dark-accent-color);
+}
 .header-text h1 a {
     color: var(--text-primary-color);
 }
@@ -176,9 +189,11 @@ nav ul li:hover {
     color: var(--text-accent-color);
 }
 .header-text .sub-text {
-    padding-top: 32px;
     font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: lighter;
+}
+.header-text .separator {
+    padding: 24px 0;
 }
 
 
@@ -198,8 +213,18 @@ nav ul li:hover {
     transition: color 0.25s;
     text-decoration: none;
 }
-.social-btn:hover {
-    color: var(--dark-accent-color);
+@media (hover: hover) and (pointer: fine) {
+    .social-btn:hover {
+        color: var(--dark-accent-color);
+    }
+}
+
+.scroll-down-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 50px;
 }
 
 /* ------------------ about ------------------ */
@@ -262,8 +287,10 @@ nav ul li:hover {
     bottom: -8px;
     transition: 0.25s;
 }
-.tab-links:hover {
-    color: var(--text-primary-color);
+@media (hover: hover) and (pointer: fine) {
+    .tab-links:hover {
+        color: var(--text-primary-color);
+    }
 }
 .tab-links.active-link::after {
     width: 50%;
@@ -275,8 +302,10 @@ nav ul li:hover {
 
     transition: 0.25s;
 }
-.tab-contents ul li:hover {
-    font-weight: bold;
+@media (hover: hover) and (pointer: fine) {
+    .tab-contents ul li:hover {
+        font-weight: bold;
+    }
 }
 .tab-contents ul li span {
     color: var(--text-accent-color);
