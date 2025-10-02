@@ -100,7 +100,7 @@ nav {
     justify-content: end;
     text-decoration: none;
 
-    transition: color 0.25s, scale 0.25s;
+    transition: color 0.5s, scale 0.25s;
     color: var(--dark-tertiary-color);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -121,7 +121,7 @@ nav ul li {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: color 0.25s;
+    transition: color 0.5s;
 }
 @media (hover: hover) and (pointer: fine) {
     nav ul li:hover {
@@ -222,7 +222,7 @@ nav ul li {
     width: 48px;
     height: 48px;
     color: var(--text-primary-color);
-    transition: color 0.25s, scale 0.25s;
+    transition: color 0.5s, scale 0.25s;
     text-decoration: none;
 }
 @media (hover: hover) and (pointer: fine) {
