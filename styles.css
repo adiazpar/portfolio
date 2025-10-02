@@ -175,7 +175,7 @@ nav ul li {
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    min-height: calc(100vh - 256px);
+    min-height: calc(100svh - 256px); /* Subtracting header container margin */
 }
 .header-container {
     margin-top: 256px;
