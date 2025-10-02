@@ -49,10 +49,10 @@ body {
     z-index: 100000;
 
     position: fixed;
-    transition: transform 0.25s ease;
+    transition: transform 0.5s ease;
 }
 .nav-container.hidden {
-    transform: translateY(-100%);
+    transform: translateY(-200%);
 }
 .nav-backdrop {
     position: fixed;
