@@ -22,7 +22,7 @@
 body {
     background: var(--dark-secondary1-color);
     color: white;
-    height: 100svh;
+    min-height: 100svh;
     overflow-x: hidden;
 }
 
@@ -172,7 +172,7 @@ nav ul li {
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    height: 448px;
+    height: 100svh;
 }
 .header-container {
     margin-top: 256px;
@@ -235,7 +235,8 @@ nav ul li {
 
 .scroll-down-indicator {
     position: absolute;
-    left: 50%;
+    width: 100%;
+    left: 0;
     bottom: 5%;
 
     display: flex;
