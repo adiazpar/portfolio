@@ -51,9 +51,9 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="scroll-down-indicator fade-in">
-            <i class="fa-solid fa-caret-down fa-bounce"></i>
+            <div class="scroll-down-indicator fade-in">
+                <i class="fa-solid fa-caret-down fa-bounce"></i>
+            </div>
         </div>
     
         <!------------------ about ------------------>
@@ -106,35 +106,6 @@
 
     <script src="scripts.js"></script>
     <script>
-        // Navbar scroll behavior:
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('.nav-container');
-        const header = document.querySelector('#header');
-        
-        window.addEventListener('scroll', function () {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const headerHeight = header.offsetHeight;
-
-            // When at very top, keep navbar fixed:
-            if (scrollTop === 0) {
-                navbar.classList.remove('hidden');
-            }
-            // After scrolling past header, make it sticky:
-            else if (scrollTop > headerHeight * 0.5) {
-                navbar.classList.remove('hidden');
-
-                // Hide navbar when scrolling down fast:
-                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-                    navbar.classList.add('hidden');
-                }
-                else {
-                    navbar.classList.remove('hidden');
-                }
-            }
-            lastScrollTop = scrollTop;
-        });
-
-
         // About Section Javascript to control active tab:
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
@@ -177,12 +148,14 @@
 
             // Navigate to target section:
             if (target === '#home' || target === '#') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: -80, behavior: 'smooth' });
             }
             else {
                 const element = document.querySelector(target);
                 if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - 80;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
             }
 

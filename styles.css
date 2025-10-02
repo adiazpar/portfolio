@@ -2,8 +2,7 @@
     --primary-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --text-primary-color: white;
-    --text-secondary-color: gray;
-    --text-tertiary-color: lightgray;
+    --text-secondary-color: lightgray;
     --text-accent-color: cyan;
 
     --dark-primary-color: #222831;
@@ -172,18 +171,21 @@ nav ul li {
 }
 
 #header {
-    position: static;
+    position: relative;
     margin-top: 0;
     padding: 0 10%;
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 80px);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: block;
+}
+.header-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 .header-text {
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
     text-align: center;
 }
 .header-text h1 {
@@ -195,18 +197,12 @@ nav ul li {
     font-size: clamp(1rem, 2.5vw, 2rem);
     color: var(--dark-accent-color);
 }
-.header-text h1 a {
-    color: var(--text-primary-color);
-}
-.header-text h1 span {
-    color: var(--text-accent-color);
-}
 .header-text .sub-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    font-weight: lighter;
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    color: var(--text-secondary-color);
 }
 .header-text .separator {
-    padding: 24px 0;
+    padding: 24px;
 }
 
 
@@ -234,11 +230,13 @@ nav ul li {
 }
 
 .scroll-down-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin-bottom: 50px;
 }
 
 /* ------------------ about ------------------ */
@@ -250,7 +248,7 @@ nav ul li {
     overflow: hidden;
 }
 .about-container {
-    color: var(--text-tertiary-color);
+    color: var(--text-secondary-color);
     font-weight: lighter;
     padding: 80px 10%;
 }
