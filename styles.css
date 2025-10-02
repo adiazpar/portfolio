@@ -23,6 +23,7 @@
 body {
     background: var(--dark-secondary1-color);
     color: white;
+    overflow-x: hidden;
 }
 
 .fade-in {
@@ -48,11 +49,11 @@ body {
     width: 100%;
     z-index: 100000;
 
-    position: fixed;
-    transition: transform 0.5s ease;
+    position: sticky;
+    transition: transform 0.25s ease;
 }
 .nav-container.hidden {
-    transform: translateY(-200%);
+    transform: translateY(-100%);
 }
 .nav-backdrop {
     position: fixed;
@@ -141,19 +142,20 @@ nav ul li {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -40%;
+        right: 0;
         width: 40%;
         height: 100vh;
         background-color: var(--dark-primary-color);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        transition: 0.25s;
+        transition: transform 0.25s;
         padding-top: 72px;
         z-index: -1;
+        transform: translateX(100%);
     }
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
     }
     .nav-menu li {
         margin: 0;
@@ -171,9 +173,9 @@ nav ul li {
 
 #header {
     position: static;
-    margin-top: 80px;
+    margin-top: 0;
     padding: 0 10%;
-    min-height: calc(100vh - 130px);
+    min-height: calc(100vh - 150px);
 
     display: flex;
     align-items: center;
