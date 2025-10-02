@@ -25,6 +25,16 @@ body {
     color: white;
 }
 
+.fade-in {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1s ease, filter 0.8s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    filter: blur(0);
+}
+
 .nav-container {
     display: flex;
     align-items: center;
@@ -94,12 +104,13 @@ nav {
     justify-content: end;
     text-decoration: none;
 
-    transition: color 0.25s;
+    transition: color 0.25s, scale 0.25s;
     color: var(--dark-tertiary-color);
 }
 @media (hover: hover) and (pointer: fine) {
     .hamburger:hover {
         color: var(--dark-accent-color);
+        scale: 1.05;
     }
 }
 nav ul li {
@@ -210,12 +221,13 @@ nav ul li {
     width: 48px;
     height: 48px;
     color: var(--text-primary-color);
-    transition: color 0.25s;
+    transition: color 0.25s, scale 0.25s;
     text-decoration: none;
 }
 @media (hover: hover) and (pointer: fine) {
     .social-btn:hover {
         color: var(--dark-accent-color);
+        scale: 1.1;
     }
 }
 
