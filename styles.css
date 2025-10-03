@@ -172,10 +172,10 @@ nav ul li {
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    height: 100svh;
+    height: 656px;
 }
 .header-container {
-    padding-top: 256px;
+    padding-top: 232px;
     width: 100%;
 }
 .header-text {
