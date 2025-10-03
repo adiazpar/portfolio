@@ -175,7 +175,7 @@ nav ul li {
     height: 100svh;
 }
 .header-container {
-    margin-top: 256px;
+    padding-top: 256px;
     width: 100%;
 }
 .header-text {
