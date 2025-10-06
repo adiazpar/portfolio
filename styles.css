@@ -358,7 +358,7 @@ nav ul li {
     color: var(--text-secondary-color);
 }
 .footer-text .icons {
-    font-size: clamp(16px, 3vw, 20px);
+    font-size: clamp(12px, 3vw, 16px);
     display: flex;
     column-gap: 16px;
 
