@@ -357,9 +357,16 @@ nav ul li {
 .footer-text .icons {
     display: flex;
     gap: 16px;
-
-    padding: 8px 0;
+}
+.footer-text .icons a {
     color: var(--text-secondary-color);
+    transition: color 0.5s;
+}
+@media (hover: hover) and (pointer: fine) {
+    .footer-text .icons a:hover {
+        cursor: pointer;
+        color: var(--text-primary-color);
+    }
 }
 .footer-copyright {
     padding: 0 5%;
