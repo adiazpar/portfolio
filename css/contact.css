@@ -1,0 +1,24 @@
+/* ----------------- contact ----------------- */
+
+#contact {
+    background: var(--dark-secondary2-color);
+    position: relative;
+}
+.contact-container {
+    padding: 80px 10%;
+}
+.contact-text h1 {
+    font-size: 32px;
+    color: var(--text-primary-color);
+    font-weight: bold;
+    
+    text-align: center;
+}
+.contact-text .separator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: var(--dark-accent-color);
+}

@@ -1,0 +1,24 @@
+/* ----------------- projects ---------------- */
+
+#projects {
+    background: var(--dark-secondary1-color);
+    position: relative;
+}
+.projects-container {
+    padding: 80px 10%;
+}
+.projects-text h1 {
+    font-size: 32px;
+    color: var(--text-primary-color);
+    font-weight: bold;
+    
+    text-align: center;
+}
+.projects-text .separator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: var(--dark-accent-color);
+}

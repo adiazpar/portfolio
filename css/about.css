@@ -1,0 +1,28 @@
+/* ------------------ about ------------------ */
+
+#about {
+    background: var(--dark-secondary2-color);
+    position: relative;
+}
+.about-container {
+    padding: 80px 10%;
+}
+.about-text h1 {
+    font-size: 32px;
+    color: var(--text-primary-color);
+    font-weight: bold;
+
+    text-align: center;
+}
+.about-text .separator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: var(--dark-accent-color);
+}
+.about-text .sub-text {
+    font-size: 16px;
+    color: var(--text-secondary-color);
+}
