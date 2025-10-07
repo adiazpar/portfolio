@@ -4,25 +4,148 @@
     background: var(--dark-secondary2-color);
     position: relative;
 }
+
 .about-container {
     padding: 80px 10%;
 }
-.about-text h1 {
+
+
+.about-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.about-header h1 {
     font-size: 32px;
     color: var(--text-primary-color);
-    font-weight: bold;
+    
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.about-header .separator {
+    color: var(--dark-accent-color);
+    padding: 8px 0;
+}
+.about-header .sub-text {
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: light;
+    text-align: center;
 
+    color: var(--text-secondary-color);
+    max-width: 656px;
+    margin: 0 auto;
+}
+
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.bio-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+
+    margin-bottom: 24px;
+    color: var(--text-primary-color);
+}
+.bio-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: light;
+
+    color: var(--text-secondary-color);
+    margin-bottom: 16px;
+}
+
+.bio-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: var(--dark-primary-color);
+    color: var(--text-primary-color);
+
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+
+    transition: background 0.5s, color 0.5s;
+    flex: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+    .resume-btn:hover {
+        background-color: var(--dark-accent-color);
+        color: var(--dark-primary-color);
+        cursor: pointer;
+    }
+}
+
+.skills-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    
+    margin-bottom: 20px;
+    color: var(--text-primary-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: var(--dark-primary-color);
+    border-radius: 8px;
+    transition: background 0.5s, color 0.5s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .skill-item:hover {
+        background-color: var(--dark-accent-color);
+        color: var(--dark-primary-color);
+    }
+}
+
+.skill-item i {
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-item span {
+    font-size: 12px;
     text-align: center;
 }
-.about-text .separator {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    color: var(--dark-accent-color);
-}
-.about-text .sub-text {
-    font-size: 16px;
-    color: var(--text-secondary-color);
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .bio-buttons {
+        flex-direction: column;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
 }
