@@ -73,7 +73,7 @@
 }
 
 .bio-buttons {
-    margin-top: 16px;
+    margin-top: 24px;
     display: flex;
     gap: 16px;
 }
@@ -86,6 +86,7 @@
     padding: 12px 24px;
     background: var(--dark-primary-color);
     color: var(--text-primary-color);
+    border: 1px solid var(--dark-accent-color);
 
     font-size: 12px;
     text-decoration: none;
