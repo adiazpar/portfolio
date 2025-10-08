@@ -7,18 +7,28 @@
 .contact-container {
     padding: 80px 10%;
 }
-.contact-text h1 {
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    margin-bottom: 80px;
+}
+.contact-header h1 {
     font-size: 32px;
     color: var(--text-primary-color);
-    font-weight: bold;
-    
-    text-align: center;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
-.contact-text .separator {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    color: var(--dark-accent-color);
+.contact-header .separator {
+    border: var(--dark-accent-color) 1px solid;
+    border-radius: 6px;
+    height: 1px;
+    width: 56px;
+
+    margin: 16px 0;
 }

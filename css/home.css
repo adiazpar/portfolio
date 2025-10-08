@@ -1,0 +1,103 @@
+/* ------------------- home ------------------ */
+
+#header {
+    position: relative;
+    margin-top: 0;
+    padding: 0 10%;
+    height: 672px;
+}
+.header-container {
+    padding-top: 232px;
+    width: 100%;
+}
+.header-text {
+    text-align: center;
+}
+.header-text h1 {
+    font-size: clamp(2.7rem, 6vw, 5rem);
+    transition: letter-spacing 1s ease;
+}
+.header-text h2 {
+    margin-top: 16px;
+    font-size: clamp(0.6rem, 1.7vw, 2rem);
+    color: var(--dark-accent-color);
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    transition: letter-spacing 1.6s, scale 0.5s;
+}
+.header-text h2.fade-in.visible {
+    letter-spacing: 0.6em;
+}
+@media (hover: hover) and (pointer: fine) {
+    .header-text h2:hover {
+        scale: 1.025;
+    }
+}
+
+.header-text .sub-text {
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    font-weight: 200;
+    color: var(--text-secondary-color);
+    padding: 0 10%;
+    line-height: 1.8;
+}
+.header-text .separator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+
+.socials-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: var(--text-primary-color);
+    transition: color 0.5s, scale 0.25s;
+    text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+    .social-btn:hover {
+        color: var(--dark-accent-color);
+        scale: 1.1;
+    }
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-down-container {
+    padding: 10px;
+    font-size: medium;
+    color: var(--text-primary-color);
+    transition: color 0.5s, font-size 0.25s;
+}
+@media (hover: hover) and (pointer: fine) {
+    .scroll-down-container:hover {
+        cursor: pointer;
+        font-size: xx-large;
+        color: var(--text-accent-color);
+    }
+}
