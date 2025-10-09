@@ -10,11 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Email functionality:
-function sendMail() {
+function sendMail(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    // Get current timestamp
+    const now = new Date();
+    const timeString = now.toLocaleString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+    });
+
     var params = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
+        time: timeString, // Add the missing time parameter
     };
 
     const serviceID = "service_trhlufi";
@@ -29,5 +43,8 @@ function sendMail() {
                 console.log(res);
                 alert("Your message was sent successfully!");
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                alert("Failed to send message. Please try again.");
+            });
 }
