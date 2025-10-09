@@ -4,7 +4,6 @@
     background: var(--dark-secondary2-color);
     position: relative;
 }
-
 .about-container {
     padding: 80px 10%;
 }
@@ -40,7 +39,7 @@
     font-weight: 200;
     text-align: center;
 
-    color: var(--text-secondary-color);
+    color: var(--text-primary-color);
     max-width: 656px;
     margin: 0 auto;
 }
@@ -84,7 +83,7 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 24px;
-    background: var(--dark-accent-color);
+    background-color: var(--dark-button-color);
     color: var(--dark-primary-color);
 
     font-size: 12px;
@@ -92,11 +91,12 @@
     border-radius: 6px;
 
     flex: 1;
-    transition: scale 0.5s;
+    transition: background-color 0.5s, scale 0.25s;
 }
 @media (hover: hover) and (pointer: fine) {
     .resume-btn:hover {
         scale: 1.025;
+        background-color: var(--dark-accent-color);
         cursor: pointer;
     }
 }
@@ -122,25 +122,16 @@
     gap: 10px;
     padding: 15px;
     background: var(--dark-primary-color);
-    border-radius: 8px;
-    transition: background 0.5s, color 0.5s;
+    border-radius: 6px;
 }
-
-@media (hover: hover) and (pointer: fine) {
-    .skill-item:hover {
-        background-color: var(--dark-accent-color);
-        color: var(--dark-primary-color);
-    }
-}
-
 .skill-item i {
     padding: 12px;
+    color: var(--dark-accent-color);
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .skill-item span {
     font-size: 12px;
     text-align: center;
@@ -151,11 +142,9 @@
         grid-template-columns: 1fr;
         gap: 80px;
     }
-
     .bio-buttons {
         flex-direction: column;
     }
-
     .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }

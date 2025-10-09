@@ -38,7 +38,7 @@
     font-weight: 200;
     text-align: center;
 
-    color: var(--text-secondary-color);
+    color: var(--text-primary-color);
     max-width: 656px;
     margin: 0 auto;
 }
@@ -145,12 +145,12 @@
 
 .project-description::-webkit-scrollbar-track {
     background: var(--dark-primary-color);
-    border-radius: 2px;
+    border-radius: 6px;
 }
 
 .project-description::-webkit-scrollbar-thumb {
     background: var(--dark-secondary1-color);
-    border-radius: 2px;
+    border-radius: 6px;
 }
 
 .project-description::-webkit-scrollbar-thumb:hover {
@@ -174,12 +174,12 @@
 
 .tech-stack::-webkit-scrollbar-track {
     background: var(--dark-primary-color);
-    border-radius: 2px;
+    border-radius: 6px;
 }
 
 .tech-stack::-webkit-scrollbar-thumb {
     background: var(--dark-secondary1-color);
-    border-radius: 2px;
+    border-radius: 6px;
 }
 
 .tech-badge {
@@ -206,22 +206,26 @@
 
 .project-link {
     flex: 1;
+    gap: 6px;
     padding: 12px 24px;
-    background: var(--dark-accent-color);
-    color: var(--dark-primary-color);
-    text-decoration: none;
     border-radius: 6px;
+
+    text-decoration: none;
     text-align: center;
     font-size: 12px;
     font-weight: 500;
+
+    background-color: var(--dark-button-color);
+    color: var(--dark-primary-color);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
 
-    transition: scale 0.5s;
+    transition: background-color 0.5s, scale 0.25s;
 }
 .project-link:hover {
+    background-color: var(--dark-accent-color);
     scale: 1.025;
 }
 
