@@ -1,7 +1,7 @@
 /* ------------------ about ------------------ */
 
 #about {
-    background: var(--dark-secondary2-color);
+    background: var(--background-secondary2);
     position: relative;
 }
 .about-container {
@@ -26,7 +26,7 @@
     letter-spacing: 0.1em;
 }
 .about-header .separator {
-    border: var(--dark-accent-color) 1px solid;
+    border: var(--accent-color) 1px solid;
     border-radius: 6px;
     height: 1px;
     width: 56px;
@@ -83,8 +83,8 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 24px;
-    background-color: var(--dark-button-color);
-    color: var(--dark-primary-color);
+    background-color: var(--button-color);
+    color: var(--background-primary);
 
     font-size: 12px;
     text-decoration: none;
@@ -96,7 +96,7 @@
 @media (hover: hover) and (pointer: fine) {
     .resume-btn:hover {
         scale: 1.025;
-        background-color: var(--dark-accent-color);
+        background-color: var(--accent-color);
         cursor: pointer;
     }
 }
@@ -121,12 +121,12 @@
     align-items: center;
     gap: 10px;
     padding: 15px;
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     border-radius: 6px;
 }
 .skill-item i {
     padding: 12px;
-    color: var(--dark-accent-color);
+    color: var(--accent-color);
 
     display: flex;
     align-items: center;
@@ -135,6 +135,7 @@
 .skill-item span {
     font-size: 12px;
     text-align: center;
+    color: var(--text-primary-color);
 }
 
 @media (max-width: 768px) {

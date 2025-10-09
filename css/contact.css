@@ -1,7 +1,7 @@
 /* ----------------- contact ----------------- */
 
 #contact {
-    background: var(--dark-secondary2-color);
+    background: var(--background-secondary2);
     position: relative;
 }
 
@@ -26,7 +26,7 @@
     letter-spacing: 0.1em;
 }
 .contact-header .separator {
-    border: var(--dark-accent-color) 1px solid;
+    border: var(--accent-color) 1px solid;
     border-radius: 6px;
     height: 1px;
     width: 56px;
@@ -48,7 +48,7 @@
 .contact-card {
     max-width: 800px;
     margin: 0 auto;
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     padding: 40px;
     border-radius: 6px;
 }
@@ -70,13 +70,13 @@
     letter-spacing: 0.05em;
 }
 .form-group label span {
-    color: var(--dark-negate-color);
+    color: var(--negate-color);
 }
 
 .form-group input,
 .form-group textarea {
     padding: 12px 16px;
-    background: var(--dark-secondary2-color);
+    background: var(--background-secondary2);
     border: 1px solid transparent;
     border-radius: 6px;
     color: var(--text-primary-color);
@@ -94,8 +94,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--dark-accent-color);
-    background: var(--dark-secondary1-color);
+    border-color: var(--accent-color);
+    background: var(--background-secondary1);
 }
 
 .form-group textarea {
@@ -109,8 +109,8 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 24px;
-    background-color: var(--dark-button-color);
-    color: var(--dark-primary-color);
+    background-color: var(--button-color);
+    color: var(--background-primary);
 
     font-size: 12px;
     font-weight: 600;
@@ -124,12 +124,12 @@
 }
 @media (hover: hover) and (pointer: fine) {
     .submit-btn:hover {
-        background-color: var(--dark-accent-color);
+        background-color: var(--accent-color);
         scale: 1.025;
     }
 }
 .contact-form .hint {
-    color: var(--dark-negate-color);
+    color: var(--negate-color);
     font-size: 12px;
     text-align: center;
 }

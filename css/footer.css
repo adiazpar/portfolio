@@ -1,7 +1,7 @@
 /* ----------------- footer ------------------ */
 
 #footer {
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     position: relative;
 }
 .footer-container {
@@ -25,6 +25,7 @@
     font-size: clamp(12px, 3vw, 16px);
     margin-bottom: 8px;
     font-weight: bold;
+    color: var(--text-primary-color)
 }
 .footer-text .sub-text {
     font-size: clamp(8px, 2.2vw, 12px);

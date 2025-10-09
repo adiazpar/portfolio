@@ -1,14 +1,31 @@
 :root {
-    --text-primary-color: white;
+    /* Dark Mode (Default) */
+    --text-primary-color: #EEEEEE;
     --text-secondary-color: lightgray;
     --text-accent-color: cyan;
 
-    --dark-primary-color: #222831;
-    --dark-secondary1-color: #393E46;
-    --dark-secondary2-color: rgb(62, 67, 75);
-    --dark-accent-color: cyan;
-    --dark-button-color: #EEEEEE;
-    --dark-negate-color: rgb(255, 80, 80);
+    --background-primary: #222831;
+    --background-secondary1: hsl(217, 10%, 25%);
+    --background-secondary2: hsl(217, 12%, 27%);
+
+    --accent-color: cyan;
+    --button-color: #EEEEEE;
+    --negate-color: #ff5050;
+}
+
+[data-theme="light"] {
+    /* Light Mode */
+    --text-primary-color: black;
+    --text-secondary-color: #222831;
+    --text-accent-color: #00B8D4;
+
+    --background-primary: #F5F7FA;
+    --background-secondary1: hsl(206, 18%, 92%);
+    --background-secondary2: hsl(206, 15%, 89%);
+
+    --accent-color: #ff0000;
+    --button-color: #222831;
+    --negate-color: #E63946;
 }
 
 *{
@@ -25,7 +42,7 @@
 }
 
 body {
-    background: var(--dark-secondary1-color);
+    background: var(--background-secondary1);
     color: white;
     overflow-x: hidden;
 }
@@ -47,7 +64,7 @@ body {
 
     padding: 0px 5%;
     height: 80px;
-    background-color: #222831f0;
+    background-color: var(--background-primary);
     backdrop-filter: blur(8px);
 
     top: 0;
@@ -111,7 +128,7 @@ nav {
 }
 @media (hover: hover) and (pointer: fine) {
     .hamburger:hover {
-        color: var(--dark-accent-color);
+        color: var(--accent-color);
         scale: 1.05;
     }
 }
@@ -131,7 +148,7 @@ nav ul li {
 }
 @media (hover: hover) and (pointer: fine) {
     nav ul li:hover {
-        color: var(--dark-accent-color);
+        color: var(--accent-color);
         cursor: pointer;
     }
 }
@@ -146,7 +163,7 @@ nav ul li {
         right: -40%;
         width: 40%;
         height: 100vh;
-        background-color: var(--dark-primary-color);
+        background-color: var(--background-primary);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -164,7 +181,7 @@ nav ul li {
         display: block;
         text-align: right;
         padding: 32px 0;
-        border-bottom: 1px solid var(--dark-secondary1-color);
+        border-bottom: 1px solid var(--background-secondary1);
 
         font-size: 16px;
         width: 100%;

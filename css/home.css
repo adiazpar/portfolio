@@ -16,11 +16,12 @@
 .header-text h1 {
     font-size: clamp(40px, 6vw, 80px);
     transition: letter-spacing 1s ease;
+    color: var(--text-primary-color);
 }
 .header-text h2 {
     margin-top: 16px;
     font-size: clamp(8px, 1.7vw, 32px);
-    color: var(--dark-accent-color);
+    color: var(--accent-color);
     text-transform: uppercase;
 
     display: flex;
@@ -38,19 +39,20 @@
     }
 }
 
-.header-text .sub-text {
-    font-size: 16px;
-    font-weight: 200;
-    color: var(--text-secondary-color);
-    padding: 0 10%;
-    line-height: 1.8;
-}
 .header-text .separator {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     padding: 24px;
+    color: var(--text-primary-color);
+}
+.header-text .sub-text {
+    font-size: 16px;
+    font-weight: 200;
+    color: var(--text-secondary-color);
+    padding: 0 10%;
+    line-height: 1.8;
 }
 
 
@@ -72,7 +74,7 @@
 }
 @media (hover: hover) and (pointer: fine) {
     .social-btn:hover {
-        color: var(--dark-accent-color);
+        color: var(--accent-color);
         scale: 1.1;
     }
 }
@@ -97,6 +99,6 @@
     .scroll-down-container:hover {
         cursor: pointer;
         font-size: xx-large;
-        color: var(--text-accent-color);
+        color: var(--accent-color);
     }
 }

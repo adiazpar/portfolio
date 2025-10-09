@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -347,6 +347,24 @@
             document.querySelector('.menu-icon').style.display = 'block';
             document.querySelector('.x-icon').style.display = 'none';
         }
+
+        // Update logo based on theme:
+        function updateLogo() {
+            const html = document.documentElement;
+            const logo = document.querySelector('.logo');
+            const currentTheme = html.getAttribute('data-theme');
+
+            // If light mode, use dark logo (dark logo on light background)
+            // If dark mode, use light logo (light logo on dark background)
+            if (currentTheme === 'light') {
+                logo.src = 'images/logo-dark.png';
+            } else {
+                logo.src = 'images/logo-light.png';
+            }
+        }
+
+        // Set correct logo on page load:
+        document.addEventListener('DOMContentLoaded', updateLogo);
 
     </script>
 </body>

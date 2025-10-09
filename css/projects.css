@@ -1,7 +1,7 @@
 /* ----------------- projects ---------------- */
 
 #projects {
-    background: var(--dark-secondary1-color);
+    background: var(--background-secondary1);
     position: relative;
 }
 .projects-container {
@@ -25,7 +25,7 @@
     letter-spacing: 0.1em;
 }
 .projects-header .separator {
-    border: var(--dark-accent-color) 1px solid;
+    border: var(--accent-color) 1px solid;
     border-radius: 6px;
     height: 1px;
     width: 56px;
@@ -52,7 +52,7 @@
 
 .project-card {
     height: 100%;
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     border-radius: 6px;
     
     display: flex;
@@ -124,7 +124,7 @@
 }
 
 .project-category {
-    color: var(--dark-accent-color);
+    color: var(--accent-color);
 }
 
 .project-description {
@@ -144,12 +144,12 @@
 }
 
 .project-description::-webkit-scrollbar-track {
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     border-radius: 6px;
 }
 
 .project-description::-webkit-scrollbar-thumb {
-    background: var(--dark-secondary1-color);
+    background: var(--background-secondary1);
     border-radius: 6px;
 }
 
@@ -173,17 +173,17 @@
 }
 
 .tech-stack::-webkit-scrollbar-track {
-    background: var(--dark-primary-color);
+    background: var(--background-primary);
     border-radius: 6px;
 }
 
 .tech-stack::-webkit-scrollbar-thumb {
-    background: var(--dark-secondary1-color);
+    background: var(--background-secondary1);
     border-radius: 6px;
 }
 
 .tech-badge {
-    background: var(--dark-secondary1-color);
+    background: var(--background-secondary1);
     color: var(--text-primary-color);
     padding: 8px;
     border-radius: 6px;
@@ -215,8 +215,8 @@
     font-size: 12px;
     font-weight: 500;
 
-    background-color: var(--dark-button-color);
-    color: var(--dark-primary-color);
+    background-color: var(--button-color);
+    color: var(--background-primary);
 
     display: flex;
     align-items: center;
@@ -225,7 +225,7 @@
     transition: background-color 0.5s, scale 0.25s;
 }
 .project-link:hover {
-    background-color: var(--dark-accent-color);
+    background-color: var(--accent-color);
     scale: 1.025;
 }
 
