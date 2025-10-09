@@ -19,6 +19,18 @@
 
     <!-- Import Fontawesome icons -->
     <script src="https://kit.fontawesome.com/487246ab59.js" crossorigin="anonymous"></script>
+
+    <!-- EmailJS functionality for contact form --> 
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "JoAIg0dAuGo0Ob7Go",
+        });
+    })();
+    </script>
 </head>
 <body>
 
@@ -196,7 +208,7 @@
                             <textarea id="message" name="message" rows="6" placeholder="Enter Your Message"></textarea>
                         </div>
 
-                        <button type="submit" class="submit-btn">
+                        <button type="submit" class="submit-btn" onclick="sendMail()">
                             <i class="fa-solid fa-paper-plane"></i>
                             Send Message
                         </button>
