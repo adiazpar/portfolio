@@ -84,21 +84,19 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 24px;
-    background: var(--dark-primary-color);
-    color: var(--text-primary-color);
-    border: 1px solid var(--dark-accent-color);
+    background: var(--dark-accent-color);
+    color: var(--dark-primary-color);
 
     font-size: 12px;
     text-decoration: none;
     border-radius: 6px;
 
-    transition: background 0.5s, color 0.5s;
     flex: 1;
+    transition: scale 0.5s;
 }
 @media (hover: hover) and (pointer: fine) {
     .resume-btn:hover {
-        background-color: var(--dark-accent-color);
-        color: var(--dark-primary-color);
+        scale: 1.025;
         cursor: pointer;
     }
 }

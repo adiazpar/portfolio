@@ -4,7 +4,7 @@
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    height: 704px;
+    height: 100dvh;
 }
 .header-container {
     padding-top: 232px;
@@ -14,12 +14,12 @@
     text-align: center;
 }
 .header-text h1 {
-    font-size: clamp(2.7rem, 6vw, 5rem);
+    font-size: clamp(40px, 6vw, 80px);
     transition: letter-spacing 1s ease;
 }
 .header-text h2 {
     margin-top: 16px;
-    font-size: clamp(0.6rem, 1.7vw, 2rem);
+    font-size: clamp(8px, 1.7vw, 32px);
     color: var(--dark-accent-color);
     text-transform: uppercase;
 
@@ -28,10 +28,9 @@
     align-items: center;
     gap: 8px;
 
-    transition: letter-spacing 1.6s, scale 0.5s;
-}
-.header-text h2.fade-in.visible {
     letter-spacing: 0.6em;
+
+    transition: scale 0.5s;
 }
 @media (hover: hover) and (pointer: fine) {
     .header-text h2:hover {
