@@ -4,7 +4,7 @@
     position: relative;
     margin-top: 0;
     padding: 0 10%;
-    height: 672px;
+    height: 704px;
 }
 .header-container {
     padding-top: 232px;
@@ -40,7 +40,7 @@
 }
 
 .header-text .sub-text {
-    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    font-size: 16px;
     font-weight: 200;
     color: var(--text-secondary-color);
     padding: 0 10%;
