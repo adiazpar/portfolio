@@ -20,8 +20,8 @@
     --text-accent-color: #00B8D4;
 
     --background-primary: #F5F7FA;
-    --background-secondary1: hsl(206, 18%, 92%);
-    --background-secondary2: hsl(206, 15%, 89%);
+    --background-secondary1: #e7ebee;
+    --background-secondary2: #dfe4e7;
 
     --accent-color: #ff0077;
     --button-color: #222831;
@@ -36,15 +36,10 @@
     box-sizing: border-box;
 
     /* Smooth theme transition */
-    transition: background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease;
-}
-
-/* Exclude icons from global transition to prevent conflicts */
-i {
-    transition: none !important;
+    transition: background-color 0.25s,
+                color 0.25s,
+                border-color 0.25s,
+                background 0.25s;
 }
 @supports (font-variation-settings: normal) {
     :root {
@@ -62,7 +57,7 @@ body {
     opacity: 0;
     filter: blur(10px);
     letter-spacing: 0em;
-    transition: opacity 0.8s ease, filter 0.8s ease;
+    transition: opacity 0.8s, filter 0.8s;
 }
 .fade-in.visible {
     opacity: 1;
@@ -80,7 +75,7 @@ body {
 
     top: 0;
     width: 100%;
-    z-index: 100000;
+    z-index: 1;
 
     position: fixed;
 }
@@ -91,11 +86,11 @@ body {
     width: 100%;
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
-    z-index: -1;
+    z-index: 2;
 
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity 0.25s, visibility 0.25s;
 }
 .nav-backdrop.active {
     opacity: 1;
@@ -116,7 +111,7 @@ nav {
     justify-content: center;
     align-items: center;
     
-    transition: scale 0.25s ease;
+    transition: scale 0.25s;
     scale: 1;
 
 }
@@ -128,8 +123,8 @@ nav {
 .hamburger {
     display: none;
     cursor: pointer;
-    width: 48px;
-    height: 48px;
+    font-size: 24px;
+    padding: 12px 0 12px 12px;
     align-items: center;
     justify-content: end;
     text-decoration: none;
@@ -137,7 +132,7 @@ nav {
 }
 
 .hamburger i {
-    transition: color 0.5s ease, transform 0.25s ease !important;
+    transition: scale 0.25s;
 }
 @media (hover: hover) and (pointer: fine) {
     .hamburger:hover {
@@ -145,7 +140,7 @@ nav {
     }
 
     .hamburger:hover i {
-        transform: scale(1.05);
+        scale: 1.1;
     }
 }
 nav ul li {
@@ -160,7 +155,6 @@ nav ul li {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: color 0.5s;
 }
 @media (hover: hover) and (pointer: fine) {
     nav ul li:hover {
@@ -175,21 +169,24 @@ nav ul li {
 
 .theme-toggle {
     cursor: pointer;
-    padding: 12px;
-    position: relative;
+    padding: 24px;
 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 
     color: var(--text-primary-color);
-    font-size: 20px;
-    transition: color 0.5s;
+    background-color: var(--background-secondary1);
+    
+    font-size: 24px;
+    border-radius: 6px;
 }
 
 .theme-toggle i {
     position: absolute;
     display: none;
+    transition: scale 0.25s, color 0.25s;
 }
 
 /* Show sun icon in light mode (to switch to dark) */
@@ -204,7 +201,7 @@ nav ul li {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .theme-toggle:hover {
+    .theme-toggle:hover i {
         color: var(--accent-color);
         scale: 1.1;
     }
@@ -241,12 +238,12 @@ nav ul li {
 @media screen and (max-width: 700px) {
     .hamburger {
         display: flex;
+        z-index: 4;
     }
     .theme-toggle {
         position: absolute;
-        right: 72px;
-        padding: 12px;
-        margin-left: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .nav-menu {
         position: fixed;
@@ -259,7 +256,7 @@ nav ul li {
         justify-content: flex-start;
         align-items: center;
         padding-top: 80px;
-        z-index: -1;
+        z-index: 3;
 
         transition: transform 0.25s;
         transform: translateX(0);

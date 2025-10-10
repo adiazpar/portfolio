@@ -76,13 +76,13 @@
 .form-group input,
 .form-group textarea {
     padding: 12px 16px;
-    background: var(--background-secondary2);
+    background-color: var(--background-secondary2);
     border: 1px solid transparent;
     border-radius: 6px;
     color: var(--text-primary-color);
     font-size: 14px;
     font-weight: 200;
-    transition: border-color 0.3s, background 0.3s;
+    transition: border-color 0.25s, background-color 0.25;
 }
 
 .form-group input::placeholder,
@@ -95,7 +95,7 @@
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: var(--background-secondary1);
+    background-color: var(--background-secondary1);
 }
 
 .form-group textarea {

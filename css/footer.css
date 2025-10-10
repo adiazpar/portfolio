@@ -41,10 +41,6 @@
 .footer-text .icons a {
     color: var(--text-secondary-color);
 }
-
-.footer-text .icons a i {
-    transition: color 0.5s ease !important;
-}
 @media (hover: hover) and (pointer: fine) {
     .footer-text .icons a:hover {
         cursor: pointer;
