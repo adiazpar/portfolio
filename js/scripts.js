@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 // Email functionality:
 function sendMail(event) {
     event.preventDefault(); // Prevent form from refreshing the page
