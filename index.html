@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,6 +54,12 @@
                 <li onclick="navigateTo('#projects')">Projects</li>
                 <li onclick="navigateTo('#contact')">Contact</li>
             </ul>
+
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle">
+                <i class="fa-solid fa-sun sun-icon"></i>
+                <i class="fa-solid fa-moon moon-icon"></i>
+            </div>
         </nav>
     </div>
 
@@ -348,6 +354,9 @@
             document.querySelector('.x-icon').style.display = 'none';
         }
 
+        // Theme Management
+        // ==================
+
         // Update logo based on theme:
         function updateLogo() {
             const html = document.documentElement;
@@ -363,8 +372,50 @@
             }
         }
 
-        // Set correct logo on page load:
-        document.addEventListener('DOMContentLoaded', updateLogo);
+        // Toggle between light and dark theme:
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+
+            // Toggle theme
+            if (currentTheme === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+
+            // Update logo after theme change
+            updateLogo();
+        }
+
+        // Load saved theme preference on page load:
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const html = document.documentElement;
+
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else {
+                // Default to dark mode if no preference is saved
+                html.setAttribute('data-theme', 'dark');
+            }
+
+            // Update logo based on loaded theme
+            updateLogo();
+        }
+
+        // Initialize theme on page load:
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+
+            // Add click handler to theme toggle button
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+        });
 
     </script>
 </body>

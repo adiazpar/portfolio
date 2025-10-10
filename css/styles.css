@@ -23,7 +23,7 @@
     --background-secondary1: hsl(206, 18%, 92%);
     --background-secondary2: hsl(206, 15%, 89%);
 
-    --accent-color: #ff0000;
+    --accent-color: #ff0077;
     --button-color: #222831;
     --negate-color: #E63946;
 }
@@ -34,6 +34,12 @@
     font-family: Inter, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1;
     box-sizing: border-box;
+
+    /* Smooth theme transition */
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
 }
 @supports (font-variation-settings: normal) {
     :root {
@@ -153,9 +159,52 @@ nav ul li {
     }
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    cursor: pointer;
+    padding: 12px;
+    margin-left: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text-primary-color);
+    font-size: 20px;
+    transition: color 0.5s, scale 0.25s;
+}
+
+.theme-toggle i {
+    display: none;
+}
+
+/* Show sun icon in light mode (to switch to dark) */
+[data-theme="light"] .theme-toggle .sun-icon {
+    display: block;
+}
+
+/* Show moon icon in dark mode (to switch to light) */
+:root:not([data-theme="light"]) .theme-toggle .moon-icon,
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .theme-toggle:hover {
+        color: var(--accent-color);
+        scale: 1.1;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .hamburger {
         display: flex;
+    }
+    .theme-toggle {
+        position: absolute;
+        right: 72px;
+        padding: 12px;
+        margin-left: 0;
     }
     .nav-menu {
         position: fixed;
