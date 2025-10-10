@@ -375,19 +375,35 @@
         // Toggle between light and dark theme:
         function toggleTheme() {
             const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
             const currentTheme = html.getAttribute('data-theme');
 
-            // Toggle theme
-            if (currentTheme === 'light') {
-                html.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
+            // Add scale-out class to trigger animation
+            themeToggle.classList.add('scale-out');
 
-            // Update logo after theme change
-            updateLogo();
+            // Wait for scale-out to complete, then switch theme
+            setTimeout(() => {
+                // Toggle theme
+                if (currentTheme === 'light') {
+                    html.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    html.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+
+                // Update logo after theme change
+                updateLogo();
+
+                // Remove scale-out and add scale-in class
+                themeToggle.classList.remove('scale-out');
+                themeToggle.classList.add('scale-in');
+
+                // Remove scale-in class after animation completes
+                setTimeout(() => {
+                    themeToggle.classList.remove('scale-in');
+                }, 350); // Match scaleIn animation duration
+            }, 200); // Wait for scaleOut animation to complete
         }
 
         // Load saved theme preference on page load:

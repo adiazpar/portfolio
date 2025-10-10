@@ -69,13 +69,19 @@
     width: 48px;
     height: 48px;
     color: var(--text-primary-color);
-    transition: color 0.5s, scale 0.25s;
     text-decoration: none;
+}
+
+.social-btn i {
+    transition: color 0.5s ease, transform 0.25s ease !important;
 }
 @media (hover: hover) and (pointer: fine) {
     .social-btn:hover {
         color: var(--accent-color);
-        scale: 1.1;
+    }
+
+    .social-btn:hover i {
+        transform: scale(1.1);
     }
 }
 
@@ -93,7 +99,10 @@
     padding: 10px;
     font-size: medium;
     color: var(--text-primary-color);
-    transition: color 0.5s, font-size 0.25s;
+}
+
+.scroll-down-container i {
+    transition: color 0.5s ease, font-size 0.25s ease !important;
 }
 @media (hover: hover) and (pointer: fine) {
     .scroll-down-container:hover {
