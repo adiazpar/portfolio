@@ -39,7 +39,7 @@
     <div class="nav-container">
         <div class="nav-backdrop"></div>
         <nav>
-            <img src="images/logo.png" class="logo" onclick="navigateTo('#home')">
+            <img src="" class="logo" onclick="navigateTo('#home')">
 
             <!-- Hamburger button (hidden on desktop) -->
              <div class="hamburger" onclick="toggleMenu()">
@@ -412,10 +412,21 @@
             const html = document.documentElement;
 
             if (savedTheme) {
+                // Use saved preference if it exists
                 html.setAttribute('data-theme', savedTheme);
             } else {
-                // Default to dark mode if no preference is saved
-                html.setAttribute('data-theme', 'dark');
+                // Check system preference
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+                if (prefersDark) {
+                    html.setAttribute('data-theme', 'dark');
+                } else if (prefersLight) {
+                    html.setAttribute('data-theme', 'light');
+                } else {
+                    // Default to dark mode if no system preference is detected
+                    html.setAttribute('data-theme', 'dark');
+                }
             }
 
             // Update logo based on loaded theme
