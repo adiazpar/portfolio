@@ -3,7 +3,7 @@
 
 const projectsData = [
     {
-        title: "Event Horizon",
+        title: "Starview",
         category: "Web App",
         categoryIcon: "fa-solid fa-laptop-code", // Icon shown next to category name
         date: "Aug 2024 - June 2025",
@@ -11,7 +11,7 @@ const projectsData = [
         technologies: [
             { name: "Django", icon: "fa-classic fa-code" },
             { name: "Python", icon: "fa-brands fa-python" },
-            { name: "SQLite", icon: "fa-solid fa-database" },
+            { name: "PostgreSQL", icon: "fa-solid fa-database" },
             { name: "HTML", icon: "fa-brands fa-html5" },
             { name: "CSS", icon: "fa-brands fa-css3" },
             { name: "JavaScript", icon: "fa-brands fa-node-js" }
@@ -19,8 +19,8 @@ const projectsData = [
         gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         image: 'images/event-horizon.png', // Set to image URL to replace gradient/placeholder, or leave as null
         links: {
-            github: "https://github.com/adiazpar/",
-            demo: "#"
+            github: "https://github.com/adiazpar/star-view",
+            demo: "https://www.starview.app/"
         }
     },
     {
