@@ -1,72 +1,112 @@
-/* ----------------- footer ------------------ */
+/* ========================================
+   Footer - Editorial Colophon Style
+   ======================================== */
 
-#footer {
+.footer {
     background: var(--background-primary);
     position: relative;
+    padding: 3rem 10%;
 }
-.footer-container {
-    padding: 32px 5%;
-    gap: 20px;
 
+.footer__container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-}
-.footer-col2 {
-    width: 200px;
-    flex-shrink: 0;
-}
-@media screen and (max-width: 700px) {
-    .footer-col2 {
-        width: 136px;
-    }
-}
-.footer-text h1 {
-    font-size: clamp(12px, 3vw, 16px);
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--text-primary-color)
-}
-.footer-text .sub-text {
-    font-size: clamp(8px, 2.2vw, 12px);
-    color: var(--text-secondary-color);
-}
-.footer-text .icons {
-    font-size: clamp(12px, 3vw, 16px);
-    display: flex;
-    column-gap: 16px;
-
-    flex-wrap: wrap;
-}
-.footer-text .icons a {
-    color: var(--text-secondary-color);
-}
-@media (hover: hover) and (pointer: fine) {
-    .footer-text .icons a:hover {
-        cursor: pointer;
-        color: var(--text-primary-color);
-    }
-}
-.footer-copyright {
-    padding: 0 5%;
-}
-.copyright-container {
-    border-top: #4f5f72 0.25px solid;
-    padding: 32px 5%;
-
-    display: flex;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 2rem;
 }
-.copyright-text {
-    font-size: clamp(8px, 2.2vw, 10px);
-    color: var(--text-secondary-color)
+
+/* Footer Info */
+.footer__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
-.copyright-text span {
-    text-decoration: underline;
-    font-weight: bold;
-    color: var(--text-primary-color)
+
+.footer__name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--text-primary-color);
 }
-.copyright-text span:hover {
+
+.footer__role {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-secondary-color);
+}
+
+/* Footer Socials */
+.footer__socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__social-link {
+    font-size: 1.25rem;
+    color: var(--text-secondary-color);
+    transition: color var(--duration-normal) ease,
+                transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.footer__social-link:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer__bottom {
+    padding-top: 1.5rem;
+}
+
+.footer__bottom .editorial-rule {
+    margin-bottom: 1.5rem;
+}
+
+.footer__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__copyright span {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    color: var(--text-secondary-color);
+}
+
+.footer__copyright span:first-child {
     cursor: pointer;
+    transition: color var(--duration-normal) ease;
+}
+
+.footer__copyright span:first-child:hover {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   Responsive - Footer
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 2.5rem 6%;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer__info {
+        align-items: center;
+    }
+
+    .footer__copyright {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
 }

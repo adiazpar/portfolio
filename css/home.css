@@ -1,113 +1,217 @@
-/* ------------------- home ------------------ */
+/* ========================================
+   Hero Section - Editorial Style
+   ======================================== */
 
-#header {
+.hero {
     position: relative;
-    margin-top: 0;
+    min-height: 100vh;
     padding: 0 10%;
-    height: 736px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    background: var(--background-primary);
 }
-.header-container {
-    padding-top: 232px;
-    width: 100%;
+
+/* Masthead - Issue Number */
+.hero__masthead {
+    position: absolute;
+    top: 100px;
+    left: 10%;
 }
-.header-text {
-    text-align: center;
-}
-.header-text h1 {
-    font-size: clamp(40px, 6vw, 80px);
-    transition: letter-spacing 1s ease;
-    color: var(--text-primary-color);
-}
-.header-text h2 {
-    margin-top: 16px;
-    font-size: clamp(8px, 1.7vw, 32px);
-    color: var(--accent-color);
+
+.masthead__issue {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
     text-transform: uppercase;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-
-    letter-spacing: 0.6em;
-
-    transition: scale 0.5s;
-}
-@media (hover: hover) and (pointer: fine) {
-    .header-text h2:hover {
-        scale: 1.025;
-    }
-}
-
-.header-text .separator {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-    color: var(--text-primary-color);
-}
-.header-text .sub-text {
-    font-size: 16px;
-    font-weight: 200;
+    letter-spacing: var(--tracking-widest);
     color: var(--text-secondary-color);
-    padding: 0 10%;
-    line-height: 1.8;
 }
 
-
-.socials-buttons {
-    margin-top: 40px;
+/* Hero Content */
+.hero__content {
+    flex: 1;
     display: flex;
-    gap: 40px;
+    flex-direction: column;
     justify-content: center;
+    max-width: 800px;
+    padding: 80px 0;
 }
-.social-btn {
+
+/* Hero Text */
+.hero__text {
+    margin-bottom: 3rem;
+}
+
+.hero__greeting {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-secondary-color);
+    margin-bottom: 0.25rem;
+    line-height: var(--leading-tight);
+}
+
+.hero__name {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-5xl), 12vw, var(--text-6xl));
+    font-weight: 500;
+    color: var(--text-primary-color);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: 1.5rem;
+}
+
+.hero__text .editorial-rule--accent {
+    margin-bottom: 1.5rem;
+}
+
+.hero__title {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.hero__intro {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary-color);
+    max-width: 500px;
+}
+
+/* Hero Socials */
+.hero__socials {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+}
+
+.hero__social-link {
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
+    gap: 0.5rem;
+    width: fit-content;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
     color: var(--text-primary-color);
     text-decoration: none;
+    transition: color var(--duration-normal) ease;
 }
 
-.social-btn i {
-    transition: scale 0.25s;
-}
-@media (hover: hover) and (pointer: fine) {
-    .social-btn:hover {
-        color: var(--accent-color);
-    }
-
-    .social-btn:hover i {
-        scale: 1.1;
-    }
+/* Override editorial-link underline for hero socials */
+.hero__social-link.editorial-link::after {
+    bottom: -4px;
 }
 
-.scroll-down-indicator {
+.hero__social-link i {
+    font-size: 1.25rem;
+    transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.hero__social-link:hover {
+    color: var(--accent-color);
+}
+
+.hero__social-link:hover i {
+    transform: translateY(-2px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
     position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 5%;
-
+    bottom: 3rem;
+    right: 10%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-.scroll-down-container {
-    padding: 10px;
-    font-size: medium;
-    color: var(--text-primary-color);
+    gap: 0.75rem;
+    cursor: pointer;
 }
 
-.scroll-down-container i {
-    transition: font-size 0.25s;
+.scroll-indicator__text {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--text-secondary-color);
+    writing-mode: vertical-rl;
+    transition: color var(--duration-normal) ease;
 }
-@media (hover: hover) and (pointer: fine) {
-    .scroll-down-container:hover {
-        cursor: pointer;
-        font-size: xx-large;
-        color: var(--accent-color);
+
+.scroll-indicator__line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(
+        to bottom,
+        var(--accent-color) 0%,
+        transparent 100%
+    );
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scaleY(0.7);
+    }
+}
+
+.scroll-indicator:hover .scroll-indicator__text {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   Responsive - Hero
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 0 6%;
+        padding-top: 100px;
+    }
+
+    .hero__masthead {
+        left: 6%;
+    }
+
+    .hero__content {
+        padding: 60px 0;
+    }
+
+    .hero__greeting {
+        font-size: var(--text-xl);
+    }
+
+    .hero__name {
+        font-size: clamp(var(--text-4xl), 15vw, var(--text-5xl));
+    }
+
+    .hero__intro {
+        font-size: var(--text-base);
+    }
+
+    .hero__socials {
+        gap: 1rem 1.5rem;
+    }
+
+    .scroll-indicator {
+        right: 6%;
+        bottom: 2rem;
+    }
+
+    .scroll-indicator__line {
+        height: 40px;
     }
 }

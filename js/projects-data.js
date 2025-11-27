@@ -1,23 +1,16 @@
 // Projects Data
 // To add a new project, simply add a new object to this array with the same structure
+// Set featured: true for the main project to display larger
 
 const projectsData = [
     {
         title: "Starview",
         category: "Web App",
-        categoryIcon: "fa-solid fa-laptop-code", // Icon shown next to category name
         date: "Aug 2024 - June 2025",
-        description: "A full-stack star viewing application that allows users to find the best viewing spots on the globe.",
-        technologies: [
-            { name: "Django", icon: "fa-classic fa-code" },
-            { name: "Python", icon: "fa-brands fa-python" },
-            { name: "PostgreSQL", icon: "fa-solid fa-database" },
-            { name: "HTML", icon: "fa-brands fa-html5" },
-            { name: "CSS", icon: "fa-brands fa-css3" },
-            { name: "JavaScript", icon: "fa-brands fa-node-js" }
-        ],
-        gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        image: 'images/event-horizon.png', // Set to image URL to replace gradient/placeholder, or leave as null
+        description: "A full-stack star viewing application that allows users to find the best viewing spots on the globe. Built with Django and PostgreSQL for robust data management and real-time location services.",
+        technologies: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript"],
+        image: 'images/event-horizon.png',
+        featured: true,
         links: {
             github: "https://github.com/adiazpar/star-view",
             demo: "https://www.starview.app/"
@@ -26,17 +19,11 @@ const projectsData = [
     {
         title: "Placeholder",
         category: "Mobile App",
-        categoryIcon: "fa-solid fa-mobile-screen-button", // Icon shown next to category name
         date: "Sep 2024 - Nov 2024",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        technologies: [
-            { name: "React Native", icon: "fa-brands fa-react" },
-            { name: "Firebase", icon: "fa-solid fa-fire" },
-            { name: "Redux", icon: "fa-solid fa-code" },
-            { name: "TypeScript", icon: "fa-solid fa-code" }
-        ],
-        gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-        image: null, // Set to image URL to replace gradient/placeholder, or leave as null
+        technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
+        image: null,
+        featured: false,
         links: {
             github: "https://github.com/adiazpar/",
             demo: "#"
@@ -45,17 +32,11 @@ const projectsData = [
     {
         title: "Placeholder",
         category: "API",
-        categoryIcon: "fa-solid fa-database", // Icon shown next to category name
         date: "Jun 2024 - Aug 2024",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        technologies: [
-            { name: "Express.js", icon: "fa-brands fa-node-js" },
-            { name: "PostgreSQL", icon: "fa-solid fa-database" },
-            { name: "Docker", icon: "fa-brands fa-docker" },
-            { name: "AWS", icon: "fa-brands fa-aws" }
-        ],
-        gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-        image: null, // Set to image URL to replace gradient/placeholder, or leave as null
+        technologies: ["Express.js", "PostgreSQL", "Docker", "AWS"],
+        image: null,
+        featured: false,
         links: {
             github: "https://github.com/adiazpar/",
             demo: "#"
@@ -72,109 +53,88 @@ function renderProjects() {
         return;
     }
 
-    projectsGrid.innerHTML = ''; // Clear existing content
+    projectsGrid.innerHTML = '';
 
-    projectsData.forEach(project => {
-        // Create project card
+    // Sort projects so featured comes first
+    const sortedProjects = [...projectsData].sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return 0;
+    });
+
+    sortedProjects.forEach((project, index) => {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        card.className = project.featured ? 'project-card project-card--featured reveal' : 'project-card reveal';
+        card.setAttribute('data-delay', Math.min(index + 1, 5));
 
         // Create image wrapper
         const imageWrapper = document.createElement('div');
-        imageWrapper.className = 'project-image-wrapper';
+        imageWrapper.className = 'project-card__image';
 
-        // Check if project has a custom image, otherwise use gradient with placeholder
         if (project.image) {
             imageWrapper.style.backgroundImage = `url(${project.image})`;
-            imageWrapper.style.backgroundSize = 'cover';
-            imageWrapper.style.backgroundPosition = 'center';
         } else {
-            imageWrapper.style.background = project.gradient;
-            // Show code icon placeholder when no image is provided
-            const imageIcon = document.createElement('i');
-            imageIcon.className = 'fa-solid fa-code project-image-placeholder';
-            imageWrapper.appendChild(imageIcon);
+            const placeholder = document.createElement('i');
+            placeholder.className = 'fa-solid fa-code project-card__image-placeholder';
+            imageWrapper.appendChild(placeholder);
         }
 
         // Create card content
         const cardContent = document.createElement('div');
-        cardContent.className = 'project-card-content';
+        cardContent.className = 'project-card__content';
+
+        // Featured label (only for featured projects)
+        if (project.featured) {
+            const featuredLabel = document.createElement('span');
+            featuredLabel.className = 'project-card__featured-label';
+            featuredLabel.textContent = 'Featured';
+            cardContent.appendChild(featuredLabel);
+        }
 
         // Title
         const title = document.createElement('h3');
+        title.className = 'project-card__title';
         title.textContent = project.title;
 
         // Meta info (category and date)
         const meta = document.createElement('div');
-        meta.className = 'project-meta';
+        meta.className = 'project-card__meta';
         meta.innerHTML = `
-            <span class="project-category">
-                <i class="${project.categoryIcon}"></i>
-                ${project.category}
-            </span>
-            <i class="fa-solid fa-circle meta-separator"></i>
-            <span>
-                ${project.date}
-            </span>
+            <span class="project-card__category">${project.category}</span>
+            <span class="project-card__meta-separator"></span>
+            <span>${project.date}</span>
         `;
 
         // Description
         const description = document.createElement('p');
-        description.className = 'project-description';
+        description.className = 'project-card__description';
         description.textContent = project.description;
 
-        // Tech stack
-        const techStack = document.createElement('div');
-        techStack.className = 'tech-stack';
-        project.technologies.forEach(tech => {
-            const badge = document.createElement('span');
-            badge.className = 'tech-badge';
-            badge.innerHTML = `
-                <i class="${tech.icon}"></i>
-                ${tech.name}
-            `;
-            techStack.appendChild(badge);
-        });
+        // Tech stack - inline text
+        const techStack = document.createElement('p');
+        techStack.className = 'project-card__tech';
+        techStack.innerHTML = `<span class="project-card__tech-label">Built with:</span> ${project.technologies.join(', ')}`;
 
         // Project links
         const links = document.createElement('div');
-        links.className = 'project-links';
+        links.className = 'project-card__links';
 
-        // Add links based on what's available
         if (project.links.github) {
             const githubLink = document.createElement('a');
             githubLink.href = project.links.github;
-            githubLink.className = 'project-link';
+            githubLink.className = 'project-card__link';
             githubLink.target = '_blank';
-            githubLink.innerHTML = `
-                <i class="fa-brands fa-github"></i>
-                Code
-            `;
+            githubLink.innerHTML = `<i class="fa-brands fa-github"></i> Code`;
             links.appendChild(githubLink);
         }
 
         if (project.links.demo) {
             const demoLink = document.createElement('a');
             demoLink.href = project.links.demo;
-            demoLink.className = 'project-link';
+            demoLink.className = 'project-card__link';
             demoLink.target = '_blank';
-            demoLink.innerHTML = `
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                Live Demo
-            `;
+            demoLink.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> Live`;
             links.appendChild(demoLink);
-        }
-
-        if (project.links.docs) {
-            const docsLink = document.createElement('a');
-            docsLink.href = project.links.docs;
-            docsLink.className = 'project-link';
-            docsLink.target = '_blank';
-            docsLink.innerHTML = `
-                <i class="fa-solid fa-book"></i>
-                Docs
-            `;
-            links.appendChild(docsLink);
         }
 
         // Assemble card content
@@ -191,6 +151,11 @@ function renderProjects() {
         // Add to grid
         projectsGrid.appendChild(card);
     });
+
+    // Observe project cards for reveal animation (they're created after DOMContentLoaded)
+    if (typeof revealObserver !== 'undefined') {
+        projectsGrid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
 }
 
 // Render projects when DOM is loaded

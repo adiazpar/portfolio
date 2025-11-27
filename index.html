@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
+    <title>Alejandro Diaz — Full Stack Developer</title>
 
-    <!-- Import Inter font https://rsms.me/inter/ -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- Import Google Fonts: Playfair Display, Source Serif 4, Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Import CSS styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -49,7 +50,7 @@
             
             <!-- Navigation Menu -->
             <ul class="nav-menu">
-                <li onclick="navigateTo('#home')">Home</li>
+                <li onclick="navigateTo('#hero')">Home</li>
                 <li onclick="navigateTo('#about')">About</li>
                 <li onclick="navigateTo('#projects')">Projects</li>
                 <li onclick="navigateTo('#contact')">Contact</li>
@@ -70,204 +71,227 @@
 
         <!------------------ home ------------------->
 
-        <div id="header">
-            <div class="header-container">
-                <div class="header-text">
-                    <h1>Hey, I'm Alex</h1>
-                    <h2><i class="fa-solid fa-laptop-code fa-lg"> </i><span>Full Stack Developer</span></h2>
-                    <i class="separator fa-solid fa-minus"></i>
-                    <p class="sub-text">
-                        Welcome and thank you for visitng my portfolio. 
-                        Feel free to check out what I'm working on!
+        <section id="hero" class="hero">
+            <div class="hero__masthead">
+                <span class="masthead__issue">Issue No. 01</span>
+            </div>
+
+            <div class="hero__content">
+                <div class="hero__text">
+                    <span class="hero__greeting">Hey,</span>
+                    <h1 class="hero__name">I'm Alex</h1>
+                    <div class="editorial-rule--accent"></div>
+                    <h2 class="hero__title">Full Stack Developer</h2>
+                    <p class="hero__intro">
+                        Welcome to my portfolio. I build elegant solutions
+                        to complex problems and create meaningful digital experiences.
                     </p>
                 </div>
-                <div class="socials-buttons">
-                    <a href="https://github.com/adiazpar" target="_blank" class="social-btn">
-                        <i class="fa-brands fa-github fa-2xl"></i>
+
+                <div class="hero__socials">
+                    <a href="https://github.com/adiazpar" target="_blank" class="hero__social-link editorial-link">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/adiazpar/" target="_blank" class="social-btn">
-                        <i class="fa-brands fa-linkedin fa-2xl"></i>
+                    <a href="https://www.linkedin.com/in/adiazpar/" target="_blank" class="hero__social-link editorial-link">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn</span>
                     </a>
-                    <a href="#" target="_blank" class="social-btn">
-                        <i class="fa-brands fa-youtube fa-2xl"></i>
+                    <a href="#" target="_blank" class="hero__social-link editorial-link">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>YouTube</span>
                     </a>
                 </div>
             </div>
-            <div class="scroll-down-indicator">
-                <div class="scroll-down-container" onclick="navigateTo('#about')">
-                    <i class="fa-solid fa-caret-down fa-bounce"></i>
-                </div>
+
+            <div class="scroll-indicator" onclick="navigateTo('#about')">
+                <span class="scroll-indicator__text">Scroll</span>
+                <div class="scroll-indicator__line"></div>
             </div>
-        </div>
+        </section>
     
         <!------------------ about ------------------>
 
-        <div id="about">
-            <div class="about-container">
-                <div class="about-header">
-                    <h1>About</h1>
-                    <div class="separator"></div>
-                    <p class="sub-text">A passionate developer focused on creating meaningful digital experiences</p>
+        <section id="about" class="about">
+            <div class="about__container">
+                <div class="section-header reveal">
+                    <span class="section-number">02</span>
+                    <span class="section-label">About</span>
                 </div>
 
-                <div class="about-content">
-                    <div class="bio-section">
-                        <h2>Who Am I?</h2>
-                        <p>
-                            I'm a passionate <span>software developer</span> who loves building elegant solutions to complex problems.
-                            I specialize in <span>web development</span> and enjoy creating intuitive, user-friendly experiences.
+                <div class="about__content">
+                    <div class="about__quote reveal" data-delay="1">
+                        <blockquote class="pull-quote">
+                            <p>Building elegant solutions to complex problems, one line of code at a time.</p>
+                        </blockquote>
+                    </div>
+
+                    <div class="about__bio">
+                        <h2 class="about__heading reveal" data-delay="1">Who Am I?</h2>
+                        <div class="editorial-rule--accent reveal" data-delay="2"></div>
+                        <p class="reveal" data-delay="2">
+                            I'm a passionate <strong>software developer</strong> who loves building elegant solutions to complex problems.
+                            I specialize in <strong>web development</strong> and enjoy creating intuitive, user-friendly experiences.
                         </p>
-                        <p>
+                        <p class="reveal" data-delay="3">
                             When I'm not coding, you'll find me exploring new technologies, contributing to open source,
                             or sharing what I've learned with the developer community.
                         </p>
-                        <p>
-                            Currently focused on <span>modern web technologies</span> and always eager to take on new challenges
+                        <p class="reveal" data-delay="3">
+                            Currently focused on <strong>modern web technologies</strong> and always eager to take on new challenges
                             that push my skills to the next level.
                         </p>
 
-                        <div class="bio-buttons">
-                            <a href="files/Alejandro Diaz Resume.pdf" download="adiazpar_resume.pdf" class="resume-btn">
+                        <div class="about__buttons reveal" data-delay="4">
+                            <a href="files/Alejandro Diaz Resume.pdf" download="adiazpar_resume.pdf" class="editorial-btn">
                                 <i class="fa-solid fa-download"></i>
-                                Download Resume
+                                Resume
                             </a>
-                            <a onclick="navigateTo('#projects')" class="resume-btn">
-                                <i class="fa-solid fa-diagram-project"></i>
-                                View Projects
+                            <a onclick="navigateTo('#projects')" class="editorial-btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                Projects
                             </a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="skills-section">
-                        <h2>My Skills</h2>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fa-brands fa-js fa-2xl"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-html5 fa-2xl"></i>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-css3-alt fa-2xl"></i>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-python fa-2xl"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-java fa-2xl"></i>
-                                <span>Java</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-git-alt fa-2xl"></i>
-                                <span>Git</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-docker fa-2xl"></i>
-                                <span>Docker</span>
-                            </div>
+                <div class="about__skills">
+                    <div class="skills__header reveal">
+                        <h3 class="skills__title">Technologies</h3>
+                        <div class="editorial-rule"></div>
+                    </div>
+                    <div class="skills__grid">
+                        <div class="skill-item reveal" data-delay="1">
+                            <i class="fa-brands fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="1">
+                            <i class="fa-brands fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="2">
+                            <i class="fa-brands fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="2">
+                            <i class="fa-brands fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="3">
+                            <i class="fa-brands fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="3">
+                            <i class="fa-brands fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item reveal" data-delay="4">
+                            <i class="fa-brands fa-docker"></i>
+                            <span>Docker</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!----------------- projects ---------------->
 
-        <div id="projects">
-            <div class="projects-container">
-                <div class="projects-header">
-                    <h1>Projects</h1>
-                    <div class="separator"></div>
-                    <p class="sub-text">A showcase of my work across different technologies</p>
+        <section id="projects" class="projects">
+            <div class="projects__container">
+                <div class="section-header reveal">
+                    <span class="section-number">03</span>
+                    <span class="section-label">Projects</span>
                 </div>
 
                 <!-- Projects will be dynamically generated here -->
-                <div id="projects-grid" class="projects-grid"></div>
+                <div id="projects-grid" class="projects__grid"></div>
             </div>
-        </div>
+        </section>
 
         <!----------------- contact ----------------->
 
-        <div id="contact">
-            <div class="contact-container">
-                <div class="contact-header">
-                    <h1>Contact</h1>
-                    <div class="separator"></div>
-                    <p class="sub-text">Have a question or want to work together? Send me a message!</p>
+        <section id="contact" class="contact">
+            <div class="contact__container">
+                <div class="section-header reveal">
+                    <span class="section-number">04</span>
+                    <span class="section-label">Get in Touch</span>
                 </div>
 
-                <div class="contact-card">
-                    <form class="contact-form" onsubmit="sendMail(event)">
-                        <div class="form-group">
-                            <label for="name">Name <span>*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <div class="contact__content">
+                    <div class="contact__intro reveal" data-delay="1">
+                        <h2 class="contact__heading">Let's Work Together</h2>
+                        <p class="contact__text">
+                            Have a question or want to collaborate on something?
+                            I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.
+                        </p>
+                    </div>
+
+                    <form class="contact__form" onsubmit="sendMail(event)">
+                        <div class="form-group reveal" data-delay="2">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="form-group__line"></div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="email">Email <span>*</span></label>
-                            <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                        <div class="form-group reveal" data-delay="3">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="form-group__line"></div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="message">Message <span>*</span></label>
-                            <textarea id="message" name="message" rows="6" placeholder="Enter Your Message" required></textarea>
+                        <div class="form-group reveal" data-delay="4">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <div class="form-group__line"></div>
                         </div>
 
-                        <button type="submit" class="submit-btn">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            Send Message
-                        </button>
-
-                        <p class="hint">* Indicates a required field</p>
+                        <div class="contact__form-footer reveal" data-delay="5">
+                            <span class="contact__required-hint">All fields required</span>
+                            <button type="submit" class="editorial-btn">
+                                Send Message
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <!----------------- footer ------------------>
-    <div id="footer">
-        <div class="footer-container">
-            <div class="footer-col1">
-                <div class="footer-text">
-                    <h1>Alejandro Diaz Paredes</h1>
-                    <P class="sub-text">Full Stack Developer</P>
-                </div>
+    <footer id="footer" class="footer">
+        <div class="footer__container">
+            <div class="footer__info">
+                <span class="footer__name">Alejandro Diaz Paredes</span>
+                <span class="footer__role">Full Stack Developer</span>
             </div>
-            <div class="footer-col2">
-                <div class="footer-text">
-                    <h1>Get Connected</h1>
-                    <h1></h1>
-                    <h2 class="icons">
-                        <a href="https://github.com/adiazpar" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/adiazpar/" target="_blank">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                    </h2>
-                </div>
+
+            <div class="footer__socials">
+                <a href="https://github.com/adiazpar" target="_blank" class="footer__social-link editorial-link">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/adiazpar/" target="_blank" class="footer__social-link editorial-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#" target="_blank" class="footer__social-link editorial-link">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="copyright-container">
-                <p class="copyright-text" onclick="navigateTo('#home')">
-                    © Copyright 2025. Made by <span>Alejandro Diaz</span>
-                </p>
+
+        <div class="footer__bottom">
+            <div class="editorial-rule"></div>
+            <div class="footer__copyright">
+                <span onclick="navigateTo('#hero')">© 2025 Alejandro Diaz</span>
+                <span>Made with care</span>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script src="js/theme.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/projects-data.js"></script>
 </body>
 </html>

@@ -24,8 +24,9 @@ function navigateTo(target) {
     const navMenu = document.querySelector('.nav-menu');
 
     // Navigate to target section:
-    if (target === '#home' || target === '#') {
-        window.scrollTo({ top: -80, behavior: 'smooth' });
+    if (target === '#home' || target === '#' || target === '#hero') {
+        // Scroll to top for hero section
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     else {
         const element = document.querySelector(target);
