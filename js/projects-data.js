@@ -6,7 +6,7 @@ const projectsData = [
     {
         title: "Starview",
         category: "Web App",
-        date: "Aug 2024 - June 2025",
+        date: "Aug 2024 - Dec 2025",
         description: "A full-stack star viewing application that allows users to find the best viewing spots on the globe. Built with Django and PostgreSQL for robust data management and real-time location services.",
         technologies: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript"],
         image: 'images/event-horizon.png',
@@ -69,7 +69,7 @@ function renderProjects() {
 
         // Create image wrapper
         const imageWrapper = document.createElement('div');
-        imageWrapper.className = 'project-card__image';
+        imageWrapper.className = 'project-card__image card-content-reveal';
 
         if (project.image) {
             imageWrapper.style.backgroundImage = `url(${project.image})`;
@@ -86,19 +86,19 @@ function renderProjects() {
         // Featured label (only for featured projects)
         if (project.featured) {
             const featuredLabel = document.createElement('span');
-            featuredLabel.className = 'project-card__featured-label';
+            featuredLabel.className = 'project-card__featured-label card-content-reveal';
             featuredLabel.textContent = 'Featured';
             cardContent.appendChild(featuredLabel);
         }
 
         // Title
         const title = document.createElement('h3');
-        title.className = 'project-card__title';
+        title.className = 'project-card__title card-content-reveal';
         title.textContent = project.title;
 
         // Meta info (category and date)
         const meta = document.createElement('div');
-        meta.className = 'project-card__meta';
+        meta.className = 'project-card__meta card-content-reveal';
         meta.innerHTML = `
             <span class="project-card__category">${project.category}</span>
             <span class="project-card__meta-separator"></span>
@@ -107,17 +107,17 @@ function renderProjects() {
 
         // Description
         const description = document.createElement('p');
-        description.className = 'project-card__description';
+        description.className = 'project-card__description card-content-reveal';
         description.textContent = project.description;
 
         // Tech stack - inline text
         const techStack = document.createElement('p');
-        techStack.className = 'project-card__tech';
+        techStack.className = 'project-card__tech card-content-reveal';
         techStack.innerHTML = `<span class="project-card__tech-label">Built with:</span> ${project.technologies.join(', ')}`;
 
         // Project links
         const links = document.createElement('div');
-        links.className = 'project-card__links';
+        links.className = 'project-card__links card-content-reveal';
 
         if (project.links.github) {
             const githubLink = document.createElement('a');

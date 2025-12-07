@@ -206,6 +206,78 @@
 }
 
 /* ========================================
+   Card Content Reveal Animation
+   ======================================== */
+
+/* Hide card content initially - use translate3d for GPU acceleration */
+.project-card .card-content-reveal {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    will-change: transform, opacity;
+}
+
+/* Promote card image to its own layer for smoother animation */
+.project-card__image {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* Animate content when card is revealed */
+.project-card.revealed .card-content-reveal {
+    animation: cardContentReveal 0.7s var(--ease-out-expo) forwards;
+}
+
+/* GPU-accelerated keyframes using translate3d */
+@keyframes cardContentReveal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Clean up will-change after animation completes to free GPU memory */
+.project-card.revealed .card-content-reveal {
+    animation-fill-mode: forwards;
+}
+
+.project-card.revealed .card-content-reveal:not(:last-child) {
+    will-change: auto;
+}
+
+/* Staggered delays - start after parent card animation (0.6s) completes */
+.project-card.revealed .project-card__image.card-content-reveal {
+    animation-delay: 0.65s;
+}
+
+.project-card.revealed .project-card__featured-label.card-content-reveal {
+    animation-delay: 0.75s;
+}
+
+.project-card.revealed .project-card__title.card-content-reveal {
+    animation-delay: 0.85s;
+}
+
+.project-card.revealed .project-card__meta.card-content-reveal {
+    animation-delay: 0.95s;
+}
+
+.project-card.revealed .project-card__description.card-content-reveal {
+    animation-delay: 1.05s;
+}
+
+.project-card.revealed .project-card__tech.card-content-reveal {
+    animation-delay: 1.15s;
+}
+
+.project-card.revealed .project-card__links.card-content-reveal {
+    animation-delay: 1.25s;
+}
+
+/* ========================================
    Responsive - Projects
    ======================================== */
 
