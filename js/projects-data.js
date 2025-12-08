@@ -7,8 +7,8 @@ const projectsData = [
         title: "Starview",
         category: "Web App",
         date: "Aug 2024 - Dec 2025",
-        description: "A full-stack star viewing application that allows users to find the best viewing spots on the globe. Built with Django and PostgreSQL for robust data management and real-time location services.",
-        technologies: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript"],
+        description: "A community-driven platform helping stargazers discover quality dark sky locations worldwide. Features user reviews with photo verification, interactive maps, and discussion threads. Achieved A+ security rating with 99.3% query optimization.",
+        technologies: ["Django", "PostgreSQL", "React", "Redis", "Celery", "Mapbox GL"],
         image: 'images/event-horizon.png',
         featured: true,
         links: {
