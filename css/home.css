@@ -4,13 +4,15 @@
 
 .hero {
     position: relative;
-    /* Fallback for browsers without small-viewport units. */
+    /* --app-height is a stable pixel value set once on page load (inline in
+       <head>) and re-locked only on real resizes (rotation, deliberate
+       window resize) by js/scripts.js. It does NOT update when mobile
+       address bars show/hide during scroll, which is the entire point —
+       any vh/svh/lvh/dvh unit would either resize (dvh, vh on some
+       browsers) or still leave a layout shift on bar collapse. The
+       fallback (100vh) only applies if JS is disabled. */
     min-height: 100vh;
-    /* Lock to the small viewport so the hero (and everything below it) does
-       not resize when mobile address bars show/hide on scroll. Without this,
-       Chrome/Google-app on Android treats 100vh as dynamic and pushes content
-       up and down as you scroll — visible jitter at section boundaries. */
-    min-height: 100svh;
+    min-height: var(--app-height, 100vh);
     padding: 0 10%;
     padding-top: 120px;
     display: flex;
