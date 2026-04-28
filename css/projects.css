@@ -56,8 +56,16 @@
     font-size: var(--text-2xl);
 }
 
-.project-card--featured .project-card__description {
-    max-height: none;
+/* Featured card description expands to fill leftover space ONLY on the
+   desktop layout where the card spans 2 grid rows. In compact layouts the
+   card has no fixed height, so flex:1 1 0 would collapse the description
+   to 0px — keep the inherited max-height behavior there. */
+@media screen and (min-width: 1025px) {
+    .project-card--featured .project-card__description {
+        flex: 1 1 0;
+        min-height: 0;
+        max-height: none;
+    }
 }
 
 /* Featured Label */
@@ -143,6 +151,11 @@
     padding-right: 0.875rem;
     scrollbar-color: var(--text-secondary-color) transparent;
     scrollbar-width: thin;
+}
+
+/* Paragraph spacing inside multi-paragraph descriptions */
+.project-card__description p + p {
+    margin-top: 0.75em;
 }
 
 /* Custom scrollbar for description */

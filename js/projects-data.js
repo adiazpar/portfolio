@@ -6,10 +6,15 @@ const projectsData = [
     {
         title: "Starview",
         category: "Web App",
-        date: "Aug 2024 - Dec 2025",
-        description: "A community-driven platform helping stargazers discover quality dark sky locations worldwide. Features user reviews with photo verification, interactive maps, and discussion threads. Achieved A+ security rating with 99.3% query optimization.",
-        technologies: ["Django", "PostgreSQL", "React", "Redis", "Celery", "Mapbox GL"],
-        image: 'images/event-horizon.png',
+        date: "Sep 2024 - Feb 2026",
+        description: [
+            "The night sky is a lot more interesting when you actually know where to look. Starview is a community-driven platform for stargazers to find — and trust — the dark-sky locations worth driving to, anchored by photo-verified reviews, threaded discussions, and a 24-badge achievement system that rewards everything from a first review to a hundred contributions. A built-in celestial hub answers the question every stargazer asks before heading out: a Sky Score for tonight, an hourly weather timeline, an accurate moon-phase calendar, and a Bortle light-pollution slider keyed to the World Atlas 2015 dataset.",
+            "Under the hood, a Django REST Framework API leans on PostgreSQL with PostGIS to do the geographic heavy lifting, while a React frontend (Vite plus TanStack Query) keeps the client snappy. Performance got obsessed over — the location-list endpoint went from 548 queries down to 4, and Redis-backed caching brought 10–60x speedups on hot routes. Security got the same treatment: django-allauth, django-axes, django-csp, bleach for XSS, and tight rate limiting together earned the live site an A+ on securityheaders.com."
+        ],
+        technologies: ["Django", "DRF", "PostgreSQL", "PostGIS", "React", "Vite", "TanStack Query", "Redis", "Mapbox GL"],
+        image: 'images/starview-logo.png',
+        imageBackground: '#0a0f1a',
+        imageFit: 'auto 55%',
         featured: true,
         links: {
             github: "https://github.com/adiazpar/star-view",
@@ -24,7 +29,7 @@ const projectsData = [
         technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Turso", "next-intl"],
         image: 'images/kasero-icon.png',
         imageBackground: '#fffde4',
-        imageFit: 'contain',
+        imageFit: 'auto 100%',
         featured: false,
         links: {
             github: "https://github.com/adiazpar/kasero.git",
@@ -32,16 +37,18 @@ const projectsData = [
         }
     },
     {
-        title: "Placeholder",
-        category: "API",
-        date: "Jun 2024 - Aug 2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        technologies: ["Express.js", "PostgreSQL", "Docker", "AWS"],
-        image: null,
+        title: "Claude Relay",
+        category: "Open Source Tool",
+        date: "Feb 2026 - Present",
+        description: "An open-source web relay that turns your phone into a remote workspace for Claude Code, exposing N parallel tmux sessions as mobile-friendly tabs over a small Node.js and WebSocket server. Detects dev servers binding TCP ports inside any pane and swaps the chat input for tappable port chips with stop/restart controls, attaches images to messages, and self-heals via launchd or systemd supervision plus tmux session auto-recreate. Built for developers on a Claude Max subscription who want to keep coding from anywhere without giving up their local environment, and reachable from outside your network through Tailscale.",
+        technologies: ["TypeScript", "Node.js", "Express", "WebSockets", "tmux", "Vanilla JS"],
+        image: 'images/claude-relay-logo.svg',
+        imageBackground: '#1a1915',
+        imageFit: 'auto 60%',
         featured: false,
         links: {
-            github: "https://github.com/adiazpar/",
-            demo: "#"
+            github: "https://github.com/adiazpar/claude-relay.git",
+            demo: null
         }
     }
 ];
@@ -113,10 +120,15 @@ function renderProjects() {
             <span>${project.date}</span>
         `;
 
-        // Description
-        const description = document.createElement('p');
+        // Description (string or array of paragraph strings)
+        const description = document.createElement('div');
         description.className = 'project-card__description card-content-reveal';
-        description.textContent = project.description;
+        const paragraphs = Array.isArray(project.description) ? project.description : [project.description];
+        paragraphs.forEach(text => {
+            const p = document.createElement('p');
+            p.textContent = text;
+            description.appendChild(p);
+        });
 
         // Tech stack - inline text
         const techStack = document.createElement('p');

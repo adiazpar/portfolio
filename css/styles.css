@@ -186,9 +186,8 @@ body {
     width: 100%;
 }
 
-/* Editorial Button - Fill Effect */
+/* Editorial Button - Simple Fill on Hover (matches project card links) */
 .editorial-btn {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -203,29 +202,12 @@ body {
     letter-spacing: var(--tracking-wider);
     text-decoration: none;
     cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-    transition: color var(--duration-normal) var(--ease-out-expo);
-}
-
-.editorial-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--text-primary-color);
-    transform: translateX(-101%);
-    transition: transform var(--duration-normal) var(--ease-out-expo);
-    z-index: -1;
-}
-
-.editorial-btn:hover::before {
-    transform: translateX(0);
+    transition: background var(--duration-normal) ease,
+                color var(--duration-normal) ease;
 }
 
 .editorial-btn:hover {
+    background: var(--text-primary-color);
     color: var(--background-primary);
 }
 
