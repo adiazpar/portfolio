@@ -14,7 +14,7 @@ const projectsData = [
         technologies: ["Django", "DRF", "PostgreSQL", "PostGIS", "React", "Vite", "TanStack Query", "Redis", "Mapbox GL"],
         image: 'images/starview-logo.png',
         imageBackground: '#0a0f1a',
-        imageFit: 'auto 55%',
+        imageScale: { height: 0.55, maxWidth: 0.85 },
         featured: true,
         links: {
             github: "https://github.com/adiazpar/star-view",
@@ -53,6 +53,44 @@ const projectsData = [
     }
 ];
 
+// Apply a width-aware background-size driven by the parent's actual dimensions.
+// scale = { height: 0..1, maxWidth: 0..1 }
+//   height:    target logo height as a fraction of the banner height
+//   maxWidth:  cap logo width as a fraction of the banner width (default 1.0)
+// Picks whichever constraint produces the smaller render so the logo never
+// overflows horizontally on narrow viewports. Re-runs on container resize via
+// ResizeObserver, so layout changes (e.g., responsive grid breakpoints) are
+// always honored.
+function applyImageScale(imageEl, src, scale) {
+    let aspect = null;
+
+    const update = () => {
+        if (aspect === null) return;
+        const w = imageEl.clientWidth;
+        const h = imageEl.clientHeight;
+        if (!w || !h) return;
+
+        const heightTargetH = h * scale.height;
+        const heightTargetW = heightTargetH * aspect;
+        const widthCapW = w * (scale.maxWidth ?? 1);
+
+        const finalW = Math.min(heightTargetW, widthCapW);
+        const finalH = finalW / aspect;
+
+        imageEl.style.backgroundSize = `${Math.round(finalW)}px ${Math.round(finalH)}px`;
+    };
+
+    const img = new Image();
+    img.onload = () => {
+        aspect = img.naturalWidth / img.naturalHeight;
+        update();
+    };
+    img.src = src;
+
+    const ro = new ResizeObserver(update);
+    ro.observe(imageEl);
+}
+
 // Function to generate project cards dynamically
 function renderProjects() {
     const projectsGrid = document.getElementById('projects-grid');
@@ -85,7 +123,9 @@ function renderProjects() {
             if (project.imageBackground) {
                 imageWrapper.style.backgroundColor = project.imageBackground;
             }
-            if (project.imageFit) {
+            if (project.imageScale) {
+                applyImageScale(imageWrapper, project.image, project.imageScale);
+            } else if (project.imageFit) {
                 imageWrapper.style.backgroundSize = project.imageFit;
             }
         } else {

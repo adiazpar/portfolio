@@ -4,7 +4,13 @@
 
 .hero {
     position: relative;
+    /* Fallback for browsers without small-viewport units. */
     min-height: 100vh;
+    /* Lock to the small viewport so the hero (and everything below it) does
+       not resize when mobile address bars show/hide on scroll. Without this,
+       Chrome/Google-app on Android treats 100vh as dynamic and pushes content
+       up and down as you scroll — visible jitter at section boundaries. */
+    min-height: 100svh;
     padding: 0 10%;
     padding-top: 120px;
     display: flex;
