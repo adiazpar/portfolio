@@ -17,16 +17,18 @@ const projectsData = [
         }
     },
     {
-        title: "Placeholder",
-        category: "Mobile App",
-        date: "Sep 2024 - Nov 2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-        image: null,
+        title: "Kasero",
+        category: "Mobile-first PWA",
+        date: "Feb 2026 - May 2026",
+        description: "A mobile-first PWA for small business owners to run multiple businesses from a single account. Combines a product catalog with AI-generated icons and barcode scanning, inventory and supplier order tracking, role-based team management, and ownership transfer in one installable app that also works offline. Internationalized for English and Spanish with per-business currency and date formatting, and engineered to run entirely on free-tier infrastructure at $0/month.",
+        technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Turso", "next-intl"],
+        image: 'images/kasero-icon.png',
+        imageBackground: '#fffde4',
+        imageFit: 'contain',
         featured: false,
         links: {
-            github: "https://github.com/adiazpar/",
-            demo: "#"
+            github: "https://github.com/adiazpar/kasero.git",
+            demo: "https://www.kasero.app"
         }
     },
     {
@@ -73,6 +75,12 @@ function renderProjects() {
 
         if (project.image) {
             imageWrapper.style.backgroundImage = `url(${project.image})`;
+            if (project.imageBackground) {
+                imageWrapper.style.backgroundColor = project.imageBackground;
+            }
+            if (project.imageFit) {
+                imageWrapper.style.backgroundSize = project.imageFit;
+            }
         } else {
             const placeholder = document.createElement('i');
             placeholder.className = 'fa-solid fa-code project-card__image-placeholder';

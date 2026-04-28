@@ -57,7 +57,6 @@
 }
 
 .project-card--featured .project-card__description {
-    font-size: var(--text-base);
     max-height: none;
 }
 
@@ -134,26 +133,36 @@
 /* Project Description */
 .project-card__description {
     font-family: var(--font-body);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: 300;
     line-height: var(--leading-relaxed);
     color: var(--text-secondary-color);
     margin-bottom: 1.25rem;
-    max-height: 80px;
+    max-height: 110px;
     overflow-y: auto;
+    padding-right: 0.875rem;
+    scrollbar-color: var(--text-secondary-color) transparent;
+    scrollbar-width: thin;
 }
 
 /* Custom scrollbar for description */
 .project-card__description::-webkit-scrollbar {
-    width: 2px;
+    width: 6px;
 }
 
 .project-card__description::-webkit-scrollbar-track {
     background: transparent;
+    margin-block: 0.25rem;
 }
 
 .project-card__description::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: var(--text-secondary-color);
+    border-radius: 3px;
+    opacity: 0.6;
+}
+
+.project-card__description::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary-color);
 }
 
 /* Tech Stack - Inline Text */
