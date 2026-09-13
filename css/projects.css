@@ -15,7 +15,7 @@
 .projects__grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     gap: 1.5rem;
 }
 
@@ -35,9 +35,8 @@
     transform: translateY(-4px);
 }
 
-/* Featured Card - Spans Full Left Column */
+/* Featured Card */
 .project-card--featured {
-    grid-row: span 2;
     border-left: 3px solid var(--accent-color);
     border-top: none;
     border-right: 1px solid var(--border-subtle);
@@ -56,14 +55,9 @@
     font-size: var(--text-2xl);
 }
 
-/* Featured card description expands to fill leftover space ONLY on the
-   desktop layout where the card spans 2 grid rows. In compact layouts the
-   card has no fixed height, so flex:1 1 0 would collapse the description
-   to 0px — keep the inherited max-height behavior there. */
+/* Show the complete featured description in the two-card desktop layout. */
 @media screen and (min-width: 1025px) {
     .project-card--featured .project-card__description {
-        flex: 1 1 0;
-        min-height: 0;
         max-height: none;
     }
 }
@@ -305,11 +299,11 @@
 
 @media screen and (max-width: 1024px) {
     .projects__grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .project-card--featured {
-        grid-column: span 2;
+        grid-column: span 1;
         grid-row: span 1;
     }
 

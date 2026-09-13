@@ -22,21 +22,6 @@ const projectsData = [
         }
     },
     {
-        title: "Kasero",
-        category: "Mobile-first PWA",
-        date: "Feb 2026 - May 2026",
-        description: "A mobile-first PWA for small business owners to run multiple businesses from a single account. Combines a product catalog with AI-generated icons and barcode scanning, inventory and supplier order tracking, role-based team management, and ownership transfer in one installable app that also works offline. Internationalized for English and Spanish with per-business currency and date formatting, and engineered to run entirely on free-tier infrastructure at $0/month.",
-        technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Turso", "next-intl"],
-        image: 'images/kasero-icon.png',
-        imageBackground: '#fffde4',
-        imageFit: 'auto 100%',
-        featured: false,
-        links: {
-            github: "https://github.com/adiazpar/kasero.git",
-            demo: "https://www.kasero.app"
-        }
-    },
-    {
         title: "Claude Relay",
         category: "Open Source Tool",
         date: "Feb 2026 - Present",
