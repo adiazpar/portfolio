@@ -6,7 +6,7 @@ const projectsData = [
     {
         title: "Starview",
         category: "Web App",
-        date: "Sep 2024 - Feb 2026",
+        date: "Sep 2024 - Present",
         description: [
             "The night sky is a lot more interesting when you actually know where to look. Starview is a community-driven platform for stargazers to find — and trust — the dark-sky locations worth driving to, anchored by photo-verified reviews, threaded discussions, and a 24-badge achievement system that rewards everything from a first review to a hundred contributions. A built-in celestial hub answers the question every stargazer asks before heading out: a Sky Score for tonight, an hourly weather timeline, an accurate moon-phase calendar, and a Bortle light-pollution slider keyed to the World Atlas 2015 dataset.",
             "Under the hood, a Django REST Framework API leans on PostgreSQL with PostGIS to do the geographic heavy lifting, while a React frontend (Vite plus TanStack Query) keeps the client snappy. Performance got obsessed over — the location-list endpoint went from 548 queries down to 4, and Redis-backed caching brought 10–60x speedups on hot routes. Security got the same treatment: django-allauth, django-axes, django-csp, bleach for XSS, and tight rate limiting together earned the live site an A+ on securityheaders.com."
@@ -17,22 +17,41 @@ const projectsData = [
         imageScale: { height: 0.55, maxWidth: 0.85 },
         featured: true,
         links: {
-            github: "https://github.com/adiazpar/star-view",
+            github: "https://github.com/adiazpar/starview",
             demo: "https://www.starview.app/"
         }
     },
     {
-        title: "Claude Relay",
+        title: "Snapmap+",
         category: "Open Source Tool",
+        date: "2026 - Present",
+        description: [
+            "Snapmap+ extends DOOM (2016)'s SnapMap editor with entity and declaration editing, reusable prefabs, timelines, asset browsing, and map-carried content packages. I develop and maintain this Windows authoring tool, building on workflows pioneered by Chrispy's SnapHak.",
+            "Native C/C++ engine integration connects to a Win32/WebView2 interface, while a Go installer handles installation, updates, and content migrations. Journaled migrations preserve user-authored content, staged self-updates retain recovery copies, and GitHub Actions builds and tests the Windows release artifacts."
+        ],
+        technologies: ["C", "C++", "Win32", "WebView2", "JavaScript", "Go", "GitHub Actions"],
+        image: 'images/snapmap-plus-editor.png',
+        imageBackground: '#222326',
+        imageFit: 'contain',
+        featured: true,
+        links: {
+            github: "https://github.com/doom-snapmap/snapmap-plus",
+            demo: "https://doom-snapmap.github.io/snapmap-plus/",
+            demoLabel: "Website"
+        }
+    },
+    {
+        title: "Claude Relay",
+        category: "Developer Tool",
         date: "Feb 2026 - Present",
-        description: "An open-source web relay that turns your phone into a remote workspace for Claude Code, exposing N parallel tmux sessions as mobile-friendly tabs over a small Node.js and WebSocket server. Detects dev servers binding TCP ports inside any pane and swaps the chat input for tappable port chips with stop/restart controls, attaches images to messages, and self-heals via launchd or systemd supervision plus tmux session auto-recreate. Built for developers on a Claude Max subscription who want to keep coding from anywhere without giving up their local environment, and reachable from outside your network through Tailscale.",
+        description: "A web relay that turns your phone into a remote workspace for Claude Code, exposing N parallel tmux sessions as mobile-friendly tabs over a small Node.js and WebSocket server. Detects dev servers binding TCP ports inside any pane and swaps the chat input for tappable port chips with stop/restart controls, attaches images to messages, and self-heals via launchd or systemd supervision plus tmux session auto-recreate. Built for developers on a Claude Max subscription who want to keep coding from anywhere without giving up their local environment, and reachable from outside your network through Tailscale.",
         technologies: ["TypeScript", "Node.js", "Express", "WebSockets", "tmux", "Vanilla JS"],
         image: 'images/claude-relay-logo.svg',
         imageBackground: '#1a1915',
         imageFit: 'auto 60%',
         featured: false,
         links: {
-            github: "https://github.com/adiazpar/claude-relay.git",
+            github: null,
             demo: null
         }
     }
@@ -178,7 +197,7 @@ function renderProjects() {
             demoLink.href = project.links.demo;
             demoLink.className = 'project-card__link';
             demoLink.target = '_blank';
-            demoLink.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> Live`;
+            demoLink.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${project.links.demoLabel || 'Live'}`;
             links.appendChild(demoLink);
         }
 
